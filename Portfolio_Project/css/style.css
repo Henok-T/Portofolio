@@ -1,0 +1,346 @@
+/*==================================================
+    Authour: Henok T.
+    Personal Portfolio Website
+
+    Special Credit: codrops.com
+====================================================
+    This is the Main Stylesheet
+====================================================*/
+
+*,
+*::after,
+*::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Avenir Next', Avenir, Helvetica, Arial, sans-serif;
+	color: #fff;
+	background: lavender;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	color: #1d48f3;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+/*===============================
+======= Videos Background =====
+=================================*/
+
+* {
+    box-sizing: border-box;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1000;
+/*
+    background-image: url(../img/pattern.png);
+    background:linear-gradient(180deg, rgba(72, 192, 245, 0.86), transparent 55%), linear-gradient(360deg, rgba(72, 192, 245, 0.86), transparent 55%),  no-repeat center;
+*/
+}
+
+/*===================================
+======== HEADING-BAR ==========
+====================================*/
+heading{
+    position: fixed;
+/*    top: 0;*/
+    margin: 50px 20px;
+    background: #f6f6ff;
+    color: black;
+    width: 25% auto;
+    padding: 0px 35px;
+    font-size: 1.3rem;
+    line-height: 2px;
+    font-family: 'Sriracha', cursive;
+    border-radius: 60px;
+}
+
+heading p{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1rem;
+}
+
+/*===============================
+=======Social Media Buttons =====
+=================================*/
+#social_buttons ul li {
+    display: inline;
+    list-style: none;
+    position: relative;
+    margin-top: 120px ;
+}
+
+#social_buttons a {
+  text-decoration: none;
+  color: white;
+/*
+  padding:18px 5px;
+  margin:2px;
+  background-color: orange;
+  border-radius:50%;
+*/
+}
+
+.fa-github {
+  padding:12px 14px;
+  transition: .5s;
+/*  background-color: #322f30;*/
+  border-radius:50%;
+  -webkit-animation-name: SocialMediaBtns;
+  -webkit-animation-duration: 4s;
+  animation-name: SocialMediaBtns;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  
+}
+
+.fa-linkedin {
+  padding:12px 14px;
+  transition: .5s;
+/*  background-color: #322f30;*/
+  border-radius:50%;
+  -webkit-animation-name: SocialMediaBtns;
+  -webkit-animation-duration: 4s;
+  animation-name: SocialMediaBtns;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes SocialMediaBtns {
+    from {background-color: lightsalmon;}
+    to {background-color: black;}
+}
+
+/*===============================
+======= ICONS =====
+=================================*/
+.icon {
+	display: block;
+	width: 1.5em;
+	height: 1.5em;
+	margin: 0 auto;
+	fill: currentColor;
+}
+
+.view {
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+	overflow: hidden;
+	height: 100vh;
+	margin: 0 0 0 215px;
+}
+
+.deco__text {
+	font-size: 0.8em;
+	line-height: 1;
+	margin: 0;
+	color: #2211dd;
+}
+/*===============================
+=======SVG Buttons =====
+=================================*/
+
+.btn {
+	border: none;
+	background: none;
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.btn--back {
+	font-size: 1.7em;
+	position: absolute;
+	z-index: 1002;
+	top: 1em;
+	right: 1em;
+	opacity: 0;
+    background-color: #f6f6ff;
+    border-radius: 50%;
+    -webkit-animation-name: changeColor;
+    -webkit-animation-duration: 4s;
+    animation-name: changeColor;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@-webkit-keyframes changeColor {
+    from {background-color: #FFB411;}
+    to {background-color: #FFFFFF;}
+}
+
+/*.demo-3 */.btn--back {*/
+	color: black;
+	top: 0.5em;
+	right: 0.5em;
+}
+
+.btn--menu {
+	font-size: 0.85em;
+	position: absolute;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	display: none;
+	margin: 10px 0 0 6px;
+}
+
+.btn--menu-active .icon--menu,
+.icon--cross {
+	display: none;
+}
+
+.btn--menu-active .icon--cross {
+	display: block;
+}
+
+/*===============================
+=======Content =====
+=================================*/
+.tabscontent {
+	pointer-events: none;
+}
+
+.tabscontent__item {
+	position: fixed;
+	z-index: 1001;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+	opacity: 0;
+}
+
+.tabscontent__item--current,
+.tabscontent__item--current ~ .btn--back {
+	pointer-events: auto;
+}
+
+
+/*.demo-3 */ .view {
+	margin: 0;
+	padding: 5vw 5vw calc(10vw + 1em);
+/*    background-image: url(../img/pattern.png);*/
+/*    background:linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%),  no-repeat center;*/
+}
+
+/*
+.demo-3 .content {
+	padding: 0;
+}
+*/
+
+.demo-3 .btn--menu {
+	font-size: 1em;
+	top: auto;
+	bottom: 25%;
+	left: 50%;
+	display: block;
+	margin: 0 -0.75em 1em;
+	color: #fbf9fa;
+}
+
+.demo-3 .demo:first-child {
+	margin: 0;
+}
+
+.demo-3 .demo.demo--current {
+	color: #2a3137;
+}
+
+.demo-3 .demo--current::before {
+	background: #fc0;
+}
+
+
+
+.demo-3 .btn--back .icon {
+	transform: rotate(-90deg);
+}
+
+.box {
+	position: relative;
+	width: 70vw;
+	min-width: 300px;
+	height: calc(90vh - 120px);
+	margin-top: 20px;
+	background-size: cover;
+	background-position: 50% 0;
+}
+
+.box__title {
+	font-size: 2em;
+    position: absolute;
+	bottom: 0;
+/*	left: 1em;*/
+	margin: 0;
+	color: #f7cc46;
+}
+
+.tabscontent__item:first-child .box {
+	background-image: url(../img/skillsimg.jpg);
+/*    background: linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%), url(../img/skillsimg.jpg),  no-repeat center;*/
+   
+}
+
+.tabscontent__item:nth-child(2) .box {
+	background-image: url(../img/PortfolioShocase.jpg);
+}
+
+.tabscontent__item:nth-child(3) .box {
+	background-image: url(../img/contactform.jpg);
+}
+
+/*===============================
+=======@media Queries ===========
+=================================*/
+@media screen and (max-width: 40em) {
+	.view {
+		overflow: auto;
+		height: auto;
+		min-height: calc(100vh - 69px);
+		margin: 0;
+	}
+	.demo-3 .view {
+		height: calc(100vh - 69px);
+	}
+    
+	.btn--back {
+		top: 0;
+		right: 0;
+	}
+	.btn--menu {
+		display: block;
+	}
+}
