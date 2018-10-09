@@ -61,12 +61,12 @@ a:focus {
 }
 
 /*===================================
-======== HEADING-BAR ==========
+======== HEADER-BAR ==========
 ====================================*/
-heading{
+header{
     position: fixed;
 /*    top: 0;*/
-    margin: 50px 20px;
+    margin: 25px 20px;
     background: #f6f6ff;
     color: black;
     width: 25% auto;
@@ -77,7 +77,7 @@ heading{
     border-radius: 60px;
 }
 
-heading p{
+header p{
     font-family: 'Kaushan Script', cursive;
     font-size: 1rem;
 }
@@ -85,16 +85,19 @@ heading p{
 /*===============================
 =======Social Media Buttons =====
 =================================*/
-#social_buttons ul li {
-    display: inline;
+#social_buttons ul {
+    display: flex;
     list-style: none;
-    position: relative;
-    margin-top: 120px ;
+	width: 10%;
+	margin-left: 0.2rem;
+	margin-top: 7rem;
+	position: fixed;
 }
 
 #social_buttons a {
   text-decoration: none;
-  color: white;
+  color: black;
+  margin:1em;
 /*
   padding:18px 5px;
   margin:2px;
@@ -132,7 +135,7 @@ heading p{
 
 @-webkit-keyframes SocialMediaBtns {
     from {background-color: lightsalmon;}
-    to {background-color: black;}
+    to {background-color: lightblue;}
 }
 
 /*===============================
@@ -146,21 +149,16 @@ heading p{
 	fill: currentColor;
 }
 
-.view {
+main {
 	position: relative;
 	display: flex;
 	justify-content: flex-end;
 	overflow: hidden;
 	height: 100vh;
 	margin: 0 0 0 215px;
+	/*background:linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%),  no-repeat center;*/
 }
 
-.deco__text {
-	font-size: 0.8em;
-	line-height: 1;
-	margin: 0;
-	color: #2211dd;
-}
 /*===============================
 =======SVG Buttons =====
 =================================*/
@@ -196,21 +194,35 @@ heading p{
     to {background-color: #FFFFFF;}
 }
 
-/*.demo-3 */.btn--back {*/
+.btn--back {
 	color: black;
 	top: 0.5em;
 	right: 0.5em;
 }
 
 .btn--menu {
-	font-size: 0.85em;
 	position: absolute;
 	z-index: 1000;
-	top: 0;
-	left: 0;
-	display: none;
-	margin: 10px 0 0 6px;
+	top: auto;
+	bottom: 7%;
+	left: 50%;
+	display: block;
+	margin: 0 -0.75em 1em;
+	color: #f3f7f4;
+	font-size: 1em;
+	background-color: transparent;
+	border-radius:8px;
+	padding: 7px;
 }
+.btn-glow {
+	animation: glowing 3000ms infinite;
+  }
+  @keyframes glowing {
+	0% {box-shadow: 0 0 60px #fff;}
+	40% { box-shadow: 0 0 50px #fff;}
+	60% {box-shadow: 0 0 10px #fff;}
+	100% {box-shadow: 0 0 60px #fff;}
+  }
 
 .btn--menu-active .icon--menu,
 .icon--cross {
@@ -219,6 +231,10 @@ heading p{
 
 .btn--menu-active .icon--cross {
 	display: block;
+}
+
+.btn--back .icon {
+	transform: rotate(-90deg);
 }
 
 /*===============================
@@ -248,46 +264,13 @@ heading p{
 }
 
 
-/*.demo-3 */ .view {
+ main {
 	margin: 0;
 	padding: 5vw 5vw calc(10vw + 1em);
 /*    background-image: url(../img/pattern.png);*/
 /*    background:linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%),  no-repeat center;*/
 }
 
-/*
-.demo-3 .content {
-	padding: 0;
-}
-*/
-
-.demo-3 .btn--menu {
-	font-size: 1em;
-	top: auto;
-	bottom: 25%;
-	left: 50%;
-	display: block;
-	margin: 0 -0.75em 1em;
-	color: #fbf9fa;
-}
-
-.demo-3 .demo:first-child {
-	margin: 0;
-}
-
-.demo-3 .demo.demo--current {
-	color: #2a3137;
-}
-
-.demo-3 .demo--current::before {
-	background: #fc0;
-}
-
-
-
-.demo-3 .btn--back .icon {
-	transform: rotate(-90deg);
-}
 
 .box {
 	position: relative;
@@ -326,13 +309,13 @@ heading p{
 =======@media Queries ===========
 =================================*/
 @media screen and (max-width: 40em) {
-	.view {
+	main {
 		overflow: auto;
 		height: auto;
 		min-height: calc(100vh - 69px);
 		margin: 0;
 	}
-	.demo-3 .view {
+	main {
 		height: calc(100vh - 69px);
 	}
     
