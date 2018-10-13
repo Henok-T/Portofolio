@@ -285,10 +285,11 @@ main {
 .box__title {
 	font-size: 2em;
     position: absolute;
-	bottom: 0;
+	bottom: 400px;
 /*	left: 1em;*/
 	margin: 0;
-	color: #f7cc46;
+	color: white;
+	text-align: center;
 }
 
 .tabscontent__item:first-child .box {
