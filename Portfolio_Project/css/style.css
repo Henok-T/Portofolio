@@ -72,7 +72,7 @@ header{
     width: 25% auto;
     padding: 0px 35px;
     font-size: 1.3rem;
-    line-height: 2px;
+	line-height: 2px !important;
     font-family: 'Sriracha', cursive;
     border-radius: 60px;
 }
@@ -89,8 +89,8 @@ header p{
     display: flex;
     list-style: none;
 	width: 10%;
-	margin-left: 0.2rem;
-	margin-top: 7rem;
+	margin-left:-9px;;
+	margin-top: 6rem;
 	position: fixed;
 }
 
@@ -267,8 +267,8 @@ main {
  main {
 	margin: 0;
 	padding: 5vw 5vw calc(10vw + 1em);
-/*    background-image: url(../img/pattern.png);*/
-/*    background:linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%),  no-repeat center;*/
+  /*  background-image: url(../img/pattern.png);
+   background:linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%),  no-repeat center;*/
 }
 
 
@@ -292,9 +292,14 @@ main {
 }
 
 .tabscontent__item:first-child .box {
-	background-image: url(../img/skillsimg.jpg);
-/*    background: linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%), url(../img/skillsimg.jpg),  no-repeat center;*/
-   
+	background-image: url(../img/pattern.png),url(../img/pattern2.png);
+    background-position: right bottom, left top;
+	background-repeat: no-repeat, repeat;
+	border-top-left-radius: 5%;
+	border-bottom-right-radius: 5%;
+	/* background-image: url(../img/codebagk.jpg), url(../img/pattern.png);  */
+   /*background: linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%), url(../img/codebagk.jpg),  no-repeat center;
+   */
 }
 
 .tabscontent__item:nth-child(2) .box {

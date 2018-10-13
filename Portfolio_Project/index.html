@@ -5,6 +5,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Henok Jr. Dev Portfolio</title>
+		
+<!-- Added stuff  -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		  
+		<link rel="stylesheet" href="./css/skillsHomePage.css">
+		<link rel="stylesheet" href="./css/html_css_Modal.css">
+<!-- /Added stuff  -->
+
         <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Sriracha" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
@@ -26,7 +34,7 @@
         
         <!--Header-Bar-->
         <header>
-            <h1>Henok</h1>
+            <h2>Henok</h2>
             <p>Jr. Developer</p>
         </header>
         <!--/Header-Bar--> 
@@ -82,11 +90,44 @@
 				<div class="tabscontent__item">
                     <h3 class="box__title">A List of My Skills </h3>
 					<div class="box">
-                        <p>This is a paragraph</p><br>
-                        <p>This is a paragraph</p><br>
-                        <p>This is a paragraph</p><br>
-                        <p>This is a paragraph</p><br>
-                        <p>This is a paragraph</p><br>
+						<div class="container-fluid">
+								<div class="lists">
+									<div class="list">
+										<ul>
+										<li><img data-toggle="tooltip" data-placement="right" title="HTML/CSS"  src="./img/js.png" alt=""></li>
+										</ul>
+										<button type="button" class="btn-info" id="learnMoreBtn" data-target="#html_css_Modal">Learn more</button>
+									</div>
+								
+									<div class="list">
+										<ul>
+											<li><img data-toggle="tooltip" data-placement="right" title="JavaScript" src="./img/db.png" alt=""></li>
+										</ul>
+										<button type="button" class=" btn-info" id="learnMoreBtn" data-target="#skillModal">Learn more</button>	
+									</div>
+								
+									<div class="list">
+										<ul>
+											<li><img data-toggle="tooltip" data-placement="right" title="DataBase" src="./img/py.png" alt=""></li>
+										</ul>
+										<button type="button" class=" btn-info" id="learnMoreBtn" data-target="#skillModal">Learn more</button>
+									</div>
+								
+									<div class="list">
+										<ul>
+											<li><img data-toggle="tooltip" data-placement="right" title="C# / .Net"  src="./img/js.png" alt=""></li>
+										</ul>
+										<button type="button" class=" btn-info" id="learnMoreBtn" data-target="#skillModal">Learn more</button>
+									</div>
+								
+									<div class="list">
+										<ul>
+											<li><img data-toggle="tooltip" data-placement="right" title="Version Control" src="./img/db.png" alt=""></li>
+										</ul>
+										<button type="button" class=" btn-info" id="learnMoreBtn" data-target="#skillModal">Learn more</button>
+									</div>
+								</div>
+							</div>
 					</div>
 				</div>
 				<div class="tabscontent__item">
@@ -101,11 +142,84 @@
 				</div>
 				<button class="btn btn--back"><svg class="icon icon--caret"><use xlink:href="#icon-caret"></use></svg></button>
 			</div>
+<!----================================================
+===================== MODALS =========================
+-==================================================-->
+<div class="modal fade" id="html_css_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+					<div class="lists">
+						<div class="list">
+							<header>Proficient in:</header>
+								<ul>
+									<li>HTML 5</li>
+									<li>CSS 3</li>
+									<li>Bootstrap</li>
+								</ul>
+							<footer>.</footer>
+						</div>
+
+						 <div class="list">
+							<header>Familiar with:</header>
+								<ul>
+									<li>Sass</li>
+									<li>Less</li>
+									<li></li>
+									<li></li>
+								</ul>
+							<footer>.</footer>
+						</div>
+
+						 <div class="list">
+							<header>Will learn:</header>
+								<ul>
+									<li>Stylus</li>
+									<li>Ulkit</li>
+									<li></li>
+									<li></li>
+								</ul>
+							<footer>.</footer>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!----================================================
+===================== / MODALS =======================
+-==================================================-->
+
+
 		</main>
-		<script src="js/anime.min.js"></script>
-		<script src="js/enquire.min.js"></script>
-		<script src="js/tabsnav.js"></script>
-		<script src="js/demo3.js"></script>
+
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/enquire.min.js"></script>
+	<script src="js/tabsnav.js"></script>
+	<script src="js/demo3.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#learnMoreBtn").click(function(){
+                    $("#html_css_Modal").modal();
+                });
+            });
+            
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+
+           
+        </script>
+		
     
 	</body>
 </html>

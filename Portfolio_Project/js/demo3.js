@@ -1,3 +1,7 @@
+//  this is my code 
+
+
+//  this is cordrops code 
 (function() {
 	var tnav = new TabsNav(document.querySelector('nav.tabsnav'), {
 			movable: 'all',
@@ -140,3 +144,4 @@
 		}
 	}
 })();
+

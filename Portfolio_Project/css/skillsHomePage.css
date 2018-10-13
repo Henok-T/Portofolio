@@ -1,0 +1,95 @@
+.container-fluid{
+/*background:linear-gradient(180deg, azure, transparent 30%), linear-gradient(360deg,#6eb5fc, transparent 30%), 
+#D1DBBD url('../img/bgbg.png') no-repeat center;
+ padding: 50px;
+color: #333;
+overflow-x: hidden;
+text-align: center;
+font-family: "Roboto";
+font-size: 14px;
+line-height: 1.3em;
+display: flex;
+margin: 0 auto;
+height: auto; */
+margin-top: 20%;
+}
+          
+/* .lists {
+/* background:linear-gradient(180deg, #6eb5fc, transparent 30%), linear-gradient(360deg,azure, transparent 30%), 
+#D1DBBD url('../img/bgbg.png')  no-repeat center;
+position: relative;
+border-radius: 20px;
+margin: 20% auto;
+height: 200px; */
+display: flex;
+/* padding:120px; 
+} */
+
+.list {
+/* background-color: lightgray;   */
+/* color: #333;*/
+margin: 4px; 
+border-radius: 10px;
+overflow-x: hidden;
+
+}
+          
+.list ul  {
+/*background-color: darkgreen;  */
+list-style: none;
+margin: 0 auto;
+/* padding: 5px;
+border-radius: 50%; */
+}
+
+/* li:hover {
+/* background-image: linear-gradient(to right, rgba(92, 196, 239, 0.5), rgba(174, 240, 240, 0.49), #95def7, rgb(242, 198, 21));
+background-position: 60% 0;
+-webkit-transition: all .5s ease-in-out;
+transition: all .5s ease-in-out;
+cursor: pointer;
+text-align:justify;
+border: none;
+background-size: 300% 100%;
+} */
+          
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width:70%;
+}
+          
+#learnMoreBtn{
+
+    border: none;
+    color: white;
+    padding:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#learnMoreBtn :hover{
+background-image: linear-gradient(to right, rgba(240, 18, 18, 0.897), rgba(240, 18, 18, 0.897), #95def7, rgb(240, 18, 18, 0.897));
+background-position: 60% 0;
+-webkit-transition: all .5s ease-in-out;
+transition: all .5s ease-in-out;
+cursor: pointer;
+text-align:justify;
+border: none;
+background-size: 300% 100%;
+}
+       
+@media only screen and (max-width: 600px){
+    .lists{
+        flex-direction: column;
+       margin-top: -50%;
+        height: 90vh;
+    }
+    
+}
+  
