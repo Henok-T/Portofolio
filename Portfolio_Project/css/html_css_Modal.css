@@ -6,8 +6,8 @@
 .modal{
 
 background:linear-gradient(135deg, rgba(12, 30, 51, 0.71), transparent 40%), linear-gradient(315deg,rgba(12, 30, 51, 0.71), transparent 40%), 
-#D1DBBD url('../img/background.jpg')  no-repeat center;
-}
+#D1DBBD url('../img/background.jpg') no-repeat center;
+    }
 
 .modal-body{
 background: linear-gradient(360deg,rgba(149, 222, 247, 0.54), transparent 20%), rgba(209, 219, 189, 0.19) url('../img/background.jpg') no-repeat center;
@@ -21,7 +21,7 @@ background-color: azure;
 }
         
 .modal-content:hover{
-background-image: linear-gradient(to right, rgba(201, 226, 12, 0.66), rgba(196, 248, 248, 0.49), #95def7, rgba(165, 248, 187, 0.33));
+background-image: linear-gradient(to right, rgba(238, 247, 128, 0.55), #fdc296, #ace4f2, rgba(165, 248, 187, 0.33));
 background-position: 100% 0;
 -webkit-transition: all .4s ease-in-out;
 transition: all .4s ease-in-out;
@@ -30,7 +30,7 @@ text-align:justify;
 border: none;
 background-size: 300% 100%;
 border-radius: 20px;
-padding: 20px;
+padding: 10px;
     
 }
 .row{
@@ -57,7 +57,7 @@ height: auto auto;
 }
 
 .list {
-background-color: lightgray;  
+/*background-color: lightgray;  */
 color: #333;
 width: 250px;
 margin-right: 15px;
@@ -84,15 +84,20 @@ padding: 5px;
 max-height: calc(100% - 36px - 36px);
 }
 .list ul li {
-background-color: #fff;
+/*background-color: #f6f6ff;*/
 padding: 6px;
 border-radius: 5px;
 }
+
+ul .list_text {
+background-color: #f6f6ff;
+}
+
 .list ul li:not(:last-child) {
 margin-bottom: 10px;
 }
 
-li:hover {
+ul .list_text:hover {
 background-image: linear-gradient(to right, rgba(92, 196, 239, 0.5), rgba(174, 240, 240, 0.49), #95def7, rgb(242, 198, 21));
 background-position: 60% 0;
 -webkit-transition: all .5s ease-in-out;

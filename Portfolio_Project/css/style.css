@@ -283,9 +283,10 @@ main {
 }
 
 .box__title {
-	font-size: 2em;
-    position: absolute;
-	bottom: 400px;
+	font-size: 1.8em;
+    text-shadow: 0px 0px 20px black;
+    position: fixed;
+	bottom: 70%;
 /*	left: 1em;*/
 	margin: 0;
 	color: white;
@@ -293,12 +294,12 @@ main {
 }
 
 .tabscontent__item:first-child .box {
-	background-image: url(../img/pattern.png),url(../img/pattern2.png);
+	/* background-image: url(../img/pattern.png),url(../img/pattern2.png);
     background-position: right bottom, left top;
 	background-repeat: no-repeat, repeat;
 	border-top-left-radius: 5%;
 	border-bottom-right-radius: 5%;
-	/* background-image: url(../img/codebagk.jpg), url(../img/pattern.png);  */
+	background-image: url(../img/codebagk.jpg), url(../img/pattern.png);  */
    /*background: linear-gradient(180deg, red transparent 55%), linear-gradient(360deg, red, transparent 55%), url(../img/codebagk.jpg),  no-repeat center;
    */
 }
