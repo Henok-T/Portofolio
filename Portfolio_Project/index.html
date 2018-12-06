@@ -8,7 +8,6 @@
 		
 <!-- Added stuff  -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		  
 		<link rel="stylesheet" href="./css/skillsHomePage.css">
 		<link rel="stylesheet" href="./css/html_css_Modal.css">
 <!-- /Added stuff  -->
@@ -51,24 +50,25 @@
         
         <!---Menu, X and Back icons -->
 		<svg class="hidden">
-			<symbol id="icon-caret" viewBox="0 0 24 24">
+			<symbol id="icon-caret" viewBox="0 0 24 24"> <!--BackButton-->
 				<title>caret</title>
-				<polygon points="15.7,16.6 11.1,12 15.7,7.4 14.3,6 8.3,12 14.3,18"/>
+				<path d="M3.24,7.51c-0.146,0.142-0.146,0.381,0,0.523l5.199,5.193c0.234,0.238,0.633,0.064,0.633-0.262v-2.634c0.105-0.007,0.212-0.011,0.321-0.011c2.373,0,4.302,1.91,4.302,4.258c0,0.957-0.33,1.809-1.008,2.602c-0.259,0.307,0.084,0.762,0.451,0.572c2.336-1.195,3.73-3.408,3.73-5.924c0-3.741-3.103-6.783-6.916-6.783c-0.307,0-0.615,0.028-0.881,0.063V2.575c0-0.327-0.398-0.5-0.633-0.261L3.24,7.51 M4.027,7.771l4.301-4.3v2.073c0,0.232,0.21,0.409,0.441,0.366c0.298-0.056,0.746-0.123,1.184-0.123c3.402,0,6.172,2.709,6.172,6.041c0,1.695-0.718,3.24-1.979,4.352c0.193-0.51,0.293-1.045,0.293-1.602c0-2.76-2.266-5-5.046-5c-0.256,0-0.528,0.018-0.747,0.05C8.465,9.653,8.328,9.81,8.328,9.995v2.074L4.027,7.771z"></path>
 			</symbol>
-			<symbol id="icon-menu" viewBox="0 0 24 24">
+			<symbol id="icon-menu" viewBox="0 0 24 24"> <!--MenuButton Open (3 lines/search icon)-->
 				<title>menu</title>
-				<path d="M23.7,3H0V0h23.7V3z M23.7,7.5H0v3h23.7V7.5z M18.9,15h-14v3h14V15z"/>
+                <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"></path>
+<!--				<path d="M23.7,3H0V0h23.7V3z M23.7,7.5H0v3h23.7V7.5z M18.9,15h-14v3h14V15z"/>-->
 			</symbol>
-			<symbol id="icon-cross" viewBox="0 0 24 24">
+			<symbol id="icon-cross" viewBox="0 0 24 24"><!--MenuButton Close (X lines)-->
 				<title>cross</title>
-				<path d="M14.1,12l7.3,7.3l-2.1,2.1L12,14.1l-7.3,7.3l-2.1-2.1L9.9,12L2.6,4.7l2.1-2.1L12,9.9l7.3-7.3l2.1,2.1L14.1,12z"/>
+				<path d="M14.1,12l7.3,7.3l-2.1,2.1L12,14.1l-7.3,7.3l-2.1-2.1L9.9,12L2.6,7.7l2.1-2.1L12,9.9l7.8-7.8l2.18. 2.1L14.1,12z"/>
 			</symbol>
 		</svg>
         <!---/Menu, X and Back icons -->
 		<main class="view">
 			<button class="btn btn--menu btn-glow">
-				<svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg>
-				<svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+				<svg class="icon icon--menu"><use href="#icon-menu"></use></svg>
+				<svg class="icon icon--cross"><use href="#icon-cross"></use></svg>
 			</button>
 			<nav class="tabsnav tabsnav--ibai tabsnav--hidden tabsnav--hidden-default">
                 
@@ -91,43 +91,43 @@
                     <h3 class="box__title">For more detail about my skills <br> please click the Learn More button . </h3>
 					<div class="box">
 						<div class="container-fluid">
-								<div class="lists">
-									<div class="list">
-										<ul>
-										<li><img data-toggle="tooltip" data-placement="right" title="HTML/CSS"  src="./img/htmlCss.png" alt=""></li>
-										</ul>
-										<button type="button" class="btn-info" id="learnMoreBtn" data-target="#html_css_Modal">Learn more</button>
-									</div>
-								
-									<div class="list">
-										<ul>
-											<li><img data-toggle="tooltip" data-placement="right" title="JavaScript" src="./img/js.png" alt=""></li>
-										</ul>
-										<button type="button" class=" btn-info" id="learnMoreBtn" data-target="#skillModal">Learn more</button>	
-									</div>
-								
-									<div class="list">
-										<ul>
-											<li><img data-toggle="tooltip" data-placement="right" title="DataBase" src="./img/db.png" alt=""></li>
-										</ul>
-										<button type="button" class=" btn-info" id="learnMoreBtn" data-target="#skillModal">Learn more</button>
-									</div>
-								
-									<div class="list">
-										<ul>
-											<li><img data-toggle="tooltip" data-placement="right" title="C# / .Net"  src="./img/Csharp.png" alt=""></li>
-										</ul>
-										<button type="button" class=" btn-info" id="learnMoreBtn" data-target="#skillModal">Learn more</button>
-									</div>
-								
-									<div class="list">
-										<ul>
-											<li><img data-toggle="tooltip" data-placement="right" title="Version Control" src="./img/GIT.png" alt=""></li>
-										</ul>
-										<button type="button" class=" btn-info" id="learnMoreBtn" data-target="#skillModal">Learn more</button>
-									</div>
-								</div>
-							</div>
+                            <div class="lists">
+                                <div class="list">
+                                    <ul>
+                                        <li> <a href="#html_css_Modal"><img data-toggle="tooltip" data-placement="right" title="Click to learn more"  src="./img/htmlCss.png" alt=""></a></li>
+                                    </ul>
+<!--                                    <button type="button" class="btn-info" id="learnMoreBtn" href="#html_css_Modal">Learn more</button>-->
+                                </div>
+
+                                <div class="list">
+                                    <ul>
+                                        <li><img data-toggle="tooltip" data-placement="right" title="JavaScript" src="./img/js.png" alt=""></li>
+                                    </ul>
+                                    <button type="button" class=" btn-info" id="learnMoreBtn" href="#js_Modal">Learn more</button>	
+                                </div>
+
+                                <div class="list">
+                                    <ul>
+                                        <li><img data-toggle="tooltip" data-placement="right" title="DataBase" src="./img/db.png" alt=""></li>
+                                    </ul>
+                                    <button type="button" class=" btn-info" id="learnMoreBtn" href="#db_Modal">Learn more</button>
+                                </div>
+
+                                <div class="list">
+                                    <ul>
+                                        <li><img data-toggle="tooltip" data-placement="right" title="C# / .Net"  src="./img/Csharp.png" alt=""></li>
+                                    </ul>
+                                    <button type="button" class=" btn-info" id="learnMoreBtn" href="#csharp_Modal">Learn more</button>
+                                </div>
+
+                                <div class="list">
+                                    <ul>
+                                        <li><img data-toggle="tooltip" data-placement="right" title="Version Control" src="./img/GIT.png" alt=""></li>
+                                    </ul>
+                                    <button type="button" class="btn-info" id="learnMoreBtn" href="#vc_Modal">Learn more</button>
+                                </div>
+                            </div>
+				        </div>
 					</div>
 				</div>
 				<div class="tabscontent__item">
@@ -140,52 +140,213 @@
 						<h3 class="box__title">Contact Form</h3>
 					</div>
 				</div>
-				<button class="btn btn--back"><svg class="icon icon--caret"><use xlink:href="#icon-caret"></use></svg></button>
-			</div>
+				<button class="btn btn--back"><svg class="icon icon--caret"><use href="#icon-caret"></use></svg></button>
+            </div>
 <!----================================================
 ===================== MODALS =========================
 -==================================================-->
+            
+<!----=============== html_css_Modal =====================-->
 <div class="modal fade" id="html_css_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-body">
-					<div class="lists">
-						<div class="list">
-								<ul>
-									<li class="list_title">Proficient in:</li>
-									<li class="list_text">HTML 5</li>
-									<li class="list_text">CSS 3</li>
-									<li class="list_text">Bootstrap</li>
-								</ul>
-						</div>
+                <div class="lists">
+                    <div class="list">
+                        <ul>
+                            <li class="list_title">Proficient in:</li>
+                            <li class="list_text">HTML 5</li>
+                            <li class="list_text">CSS 3</li>
+                            <li class="list_text">Bootstrap</li>
+                        </ul>
+                    </div>
 
-						 <div class="list">
-								<ul>
-									<li class="list_title">Familiar with:</li>
-									<li class="list_text">SASS</li>
-									<li class="list_text">LESS</li>
-									<li class="list_text"></li>
-									<li class="list_text"></li>
-								</ul>
-						</div>
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Familiar with:</li>
+                            <li class="list_text">SASS</li>
+                            <li class="list_text">LESS</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
 
-						 <div class="list">
-								<ul>
-									<li class="list_title">Will soon learn:</li>
-									<li class="list_text">STYLUS</li>
-									<li class="list_text">ULKIT</li>
-									<li class="list_text"></li>
-									<li class="list_text"></li>
-								</ul>
-						</div>
-					</div>
-				</div>
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Will soon learn:</li>
+                            <li class="list_text">STYLUS</li>
+                            <li class="list_text">ULKIT</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 </div>
+            
+<!----=============== js_Modal =====================-->
+<div class="modal fade" id="js_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+                <div class="lists">
+                    <div class="list">
+                        <ul>
+                            <li class="list_title">Proficient in:</li>
+                            <li class="list_text">JavaScript</li>
+                            <li class="list_text">Jquery</li>
+                            <li class="list_text">NodeJs</li>
+                        </ul>
+                    </div>
 
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Familiar with:</li>
+                            <li class="list_text">Lorem Ipsum</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
 
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Will soon learn:</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+            
+<!----=============== db_Modal =====================-->
+<div class="modal fade" id="db_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+                <div class="lists">
+                    <div class="list">
+                        <ul>
+                            <li class="list_title">Proficient in:</li>
+                            <li class="list_text">SQL</li>
+                            <li class="list_text">Tsql</li>
+                            <li class="list_text">Lorem ipsum</li>
+                        </ul>
+                    </div>
 
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Familiar with:</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
+
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Will soon learn:</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+            
+<!----=============== C#_Modal =====================-->
+<div class="modal fade" id="csharp_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+                <div class="lists">
+                    <div class="list">
+                        <ul>
+                            <li class="list_title">Proficient in:</li>
+                            <li class="list_text">C#</li>
+                            <li class="list_text">.NET</li>
+                            <li class="list_text">Lorem ipsum</li>
+                        </ul>
+                    </div>
+
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Familiar with:</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
+
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Will soon learn:</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+            
+<!----=============== vc_Modal =====================-->
+<div class="modal fade" id="vc_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+                <div class="lists">
+                    <div class="list">
+                        <ul>
+                            <li class="list_title">Proficient in:</li>
+                            <li class="list_text">Git</li>
+                            <li class="list_text">Github</li>
+                            <li class="list_text">Lorem ipsum</li>
+                        </ul>
+                    </div>
+
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Familiar with:</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
+
+                     <div class="list">
+                        <ul>
+                            <li class="list_title">Will soon learn:</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text">Lorem ipsum</li>
+                            <li class="list_text"></li>
+                            <li class="list_text"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+ 
+            
 <!----================================================
 ===================== / MODALS =======================
 -==================================================-->
@@ -204,12 +365,7 @@
 	<script src="js/demo3.js"></script>
 
         <script>
-            $(document).ready(function(){
-                $("#learnMoreBtn").click(function(){
-                    $("#html_css_Modal").modal();
-                });
-            });
-            
+        
             $(document).ready(function(){
                 $('[data-toggle="tooltip"]').tooltip();   
             });

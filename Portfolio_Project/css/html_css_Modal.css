@@ -5,32 +5,42 @@
 
 .modal{
 
-background:linear-gradient(135deg, rgba(12, 30, 51, 0.71), transparent 40%), linear-gradient(315deg,rgba(12, 30, 51, 0.71), transparent 40%), 
-#D1DBBD url('../img/background.jpg') no-repeat center;
-    }
+background: 
+    linear-gradient(135deg, rgba(3, 43, 90, 0.71), transparent 10%), 
+    linear-gradient(315deg,rgba(3, 43, 90, 0.71), transparent 10%), 
+    #008ae6
+     url('../img/modalbg.jpeg') no-repeat center;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: .4s;
+    animation-name: slideIn;
+    animation-duration: .4s;
+}
 
 .modal-body{
-background: linear-gradient(360deg,rgba(149, 222, 247, 0.54), transparent 20%), rgba(209, 219, 189, 0.19) url('../img/background.jpg') no-repeat center;
+background: linear-gradient(360deg,rgba(149, 222, 247, 0.54), transparent 20%), 
+            rgba(209, 219, 189, 0.19) 
+            url('../img/2.png') no-repeat center;
 border-radius: 20px;
 }
 
 .modal-content{
-border-radius: 20px;
-/*padding-bottom: 20px;*/
-background-color: azure;
+    border-radius: 20px;
+    /*padding-bottom: 20px;*/
+    background-color: azure;
+    
 }
         
 .modal-content:hover{
-background-image: linear-gradient(to right, rgba(238, 247, 128, 0.55), #fdc296, #ace4f2, rgba(165, 248, 187, 0.33));
-background-position: 100% 0;
--webkit-transition: all .4s ease-in-out;
-transition: all .4s ease-in-out;
-cursor: pointer;
-text-align:justify;
-border: none;
-background-size: 300% 100%;
-border-radius: 20px;
-padding: 10px;
+    background-image: linear-gradient(to right, rgba(238, 247, 128, 0.55), #fdc296, #ace4f2, rgba(165, 248, 187, 0.33));
+    background-position: 100% 0;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    text-align:justify;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 20px;
+    padding: 10px;
     
 }
 .row{
@@ -38,7 +48,7 @@ padding: 0;
 }
         
 /*====================================================
-====================Trellow style cards===============
+====================Trello style cards===============
 ======================================================*/
 
 .lists {

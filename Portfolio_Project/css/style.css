@@ -88,10 +88,11 @@ header p{
 #social_buttons ul {
     display: flex;
     list-style: none;
-	width: 10%;
-	margin-left:-9px;;
+	width: 100%;
+	margin-left:rem;
 	margin-top: 6rem;
 	position: fixed;
+    z-index: 1;
 }
 
 #social_buttons a {
@@ -123,6 +124,7 @@ header p{
 .fa-linkedin {
   padding:12px 14px;
   transition: .5s;
+  margin-left: -27px;
 /*  background-color: #322f30;*/
   border-radius:50%;
   -webkit-animation-name: SocialMediaBtns;
