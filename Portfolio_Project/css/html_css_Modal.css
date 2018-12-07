@@ -4,34 +4,24 @@
 =============================================*/
 
 .modal{
-
-background: 
-    linear-gradient(135deg, rgba(3, 43, 90, 0.71), transparent 10%), 
-    linear-gradient(315deg,rgba(3, 43, 90, 0.71), transparent 10%), 
-    #008ae6
-     url('../img/modalbg.jpeg') no-repeat center;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: .4s;
-    animation-name: slideIn;
-    animation-duration: .4s;
+    background:#008ae6 url('../img/2.png') no-repeat center;
 }
 
 .modal-body{
-background: linear-gradient(360deg,rgba(149, 222, 247, 0.54), transparent 20%), 
-            rgba(209, 219, 189, 0.19) 
-            url('../img/2.png') no-repeat center;
-border-radius: 20px;
+  /*   background:url('../img/2.png') no-repeat center;
+   border-radius: 20px;*/
 }
 
 .modal-content{
     border-radius: 20px;
-    /*padding-bottom: 20px;*/
-    background-color: azure;
+    background:#008ae6 url('../img/2.png') no-repeat center;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
     
 }
         
 .modal-content:hover{
-    background-image: linear-gradient(to right, rgba(238, 247, 128, 0.55), #fdc296, #ace4f2, rgba(165, 248, 187, 0.33));
     background-position: 100% 0;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
@@ -40,9 +30,11 @@ border-radius: 20px;
     border: none;
     background-size: 300% 100%;
     border-radius: 20px;
-    padding: 10px;
-    
+    padding: 60px;
 }
+
+    
+
 .row{
 padding: 0;
 }

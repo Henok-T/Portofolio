@@ -1,71 +1,30 @@
-.container-fluid{
-margin-top: 20%;
-}
-          
-/* .lists {
- */
-display: flex;
-/*padding:120px; 
-} */
 
-.list {
-/* background-color: lightgray;   */
-margin: 4px; 
-border-radius: 10px;
-overflow-x: hidden;
-}
-          
-.list ul  {
-/*background-color: darkgreen;  */
-list-style: none;
-margin: 0 auto;
-}
-          
-img {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width:70%;
-}
 
-img:hover {
--webkit-transform: scale(1.5);
-    background: none;
-transform: scale(1.4);
-    -webkit-transition: -webkit-transform 0.5s;
-	transition: transform 0.5s;
-}
-          
-#learnMoreBtn{
-border: 2px inset white;
-border-radius: 5px;
-color: white;
-padding:10px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 18px;
-margin-top: 20px;
-cursor: pointer;
-}
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
 
-#learnMoreBtn :hover{
-background-image: linear-gradient(to right, #95def7, #4af417, #95def7, rgb(240, 18, 18, 0.897));
-background-position: 60% 0;
--webkit-transition: all .5s ease-in-out;
-transition: all .5s ease-in-out;
-cursor: pointer;
-text-align:justify;
-border: none;
-background-size: 300% 100%;  
-}
-       
-@media only screen and (max-width: 600px){
-    .lists{
-        flex-direction: column;
-       margin-top: -50%;
-        height: 90vh;
-    }
-    
-}
+
+     
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+
+
+
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
+/* May use it for styling. Remove at the end if not used */
   
