@@ -13,7 +13,7 @@
 }
 
 .modal-content{
-    border-radius: 20px;
+    border-radius: 5px 20px;
     background:#008ae6 url('../img/2.png') no-repeat center;
     text-align: center;
     color: white;
@@ -23,13 +23,13 @@
         
 .modal-content:hover{
     background-position: 100% 0;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+    -webkit-transition: all .9s ease-in-out;
+    transition: all .9s ease-in-out;
     cursor: pointer;
     text-align:justify;
     border: none;
     background-size: 300% 100%;
-    border-radius: 20px;
+    border-radius: 5px 20px;
     padding: 30px;
 }
 

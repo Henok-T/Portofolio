@@ -3,10 +3,13 @@
     font-size: 0;
     list-style: none;
     margin: 0;
+/*
     padding: 48px;
     padding: 4.8rem;
-    text-align: center;
     margin-top: 5px;
+*/
+    text-align: center;
+
 }
 
 .socialBtns li {
@@ -22,10 +25,8 @@
 
 .socialBtns a {
     position: relative;
-    height: 96px;
-    height: 9.6rem;
-    width: 96px;
-    width: 9.6rem;
+    height: 50px;
+    width: 50px;
 }
 
 .socialBtns svg {
@@ -37,39 +38,36 @@
 .icon-Github:hover,
 .icon-Linkedin:hover,
 .icon-Twitter:hover {
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
+    background: #000;
+    border-radius: 100%;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
     transition: background-color 0.5s, -webkit-transform 0.5s ease-out;
     transition: background-color 0.5s, transform 0.5s ease-out;
     transition: background-color 0.5s, transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
 }
 
+/*
+
 .icon-Email:hover {
-    background: #720e9e;
+    background: #000;
 }
 
 .icon-Github:hover {
-    background: #fac206;
+    background: #000;
 }
 
 .icon-Linkedin:hover {
-    background: #4875B4;
+    background: #000;
 }
 
 .icon-Twitter:hover {
-    background: #38A1F3;
+    background: #000;
 }
 
-.aboutMeText {
-    text-align: center;
-    color: white;
-    margin: 0 auto;
-    width: 70%;
-    padding: 5px;
-    font-size: 18px;
-}
 
-/*
+
+
         .icon-Email {
             color: #6ed926;
         }

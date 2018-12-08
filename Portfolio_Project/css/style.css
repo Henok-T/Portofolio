@@ -281,7 +281,18 @@ main {
 }
 
 .tabscontent__item:nth-child(3) .box {
-	background-image: url(../img/contactme.png);
+	background-image: url(../img/newcontact.png);
+    padding-top: 2%;
+    border-radius: 20px 5px;
+}
+.aboutMeText {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 70%;
+    padding: 50px;
+    font-size: 20px;
+    font-family: 'Sriracha', cursive;
 }
 
 .lists { 
@@ -332,6 +343,10 @@ margin-top: 20%;
  */ 
 .carousel{
     padding: 5%;
+    border-radius: 10px;
+}
+.carousel img {
+    border-radius: 20px 5px;
 }
 
 .carousel-caption{
