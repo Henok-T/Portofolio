@@ -1,0 +1,86 @@
+.socialBtns {
+    display: block;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 48px;
+    padding: 4.8rem;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.socialBtns li {
+    display: inline-block;
+    margin: 5px;
+    margin: 1.2rem;
+}
+
+.socialBtns a,
+.socialBtns svg {
+    display: block;
+}
+
+.socialBtns a {
+    position: relative;
+    height: 96px;
+    height: 9.6rem;
+    width: 96px;
+    width: 9.6rem;
+}
+
+.socialBtns svg {
+    height: 100%;
+    width: 100%;
+}
+
+.icon-Email:hover,
+.icon-Github:hover,
+.icon-Linkedin:hover,
+.icon-Twitter:hover {
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+    transition: background-color 0.5s, -webkit-transform 0.5s ease-out;
+    transition: background-color 0.5s, transform 0.5s ease-out;
+    transition: background-color 0.5s, transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+}
+
+.icon-Email:hover {
+    background: #720e9e;
+}
+
+.icon-Github:hover {
+    background: #fac206;
+}
+
+.icon-Linkedin:hover {
+    background: #4875B4;
+}
+
+.icon-Twitter:hover {
+    background: #38A1F3;
+}
+
+.aboutMeText {
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    width: 70%;
+    padding: 5px;
+    font-size: 18px;
+}
+
+/*
+        .icon-Email {
+            color: #6ed926;
+        }
+        .icon-Github {
+            color: #26d991;
+        }
+        .icon-Linkedin {
+            color: #2691d9;
+        }
+
+        .icon-Twitter {
+            color: #d926b5;
+        }
+*/
