@@ -341,18 +341,60 @@ margin-top: 20%;
     margin: 0 auto;
 }
  */ 
+/*=========== carousel ========================*/
 .carousel{
-    padding: 5%;
+    padding: 2%;
     border-radius: 10px;
 }
 .carousel img {
-    border-radius: 20px 5px;
+    border-radius: 35px 1px;
 }
 
 .carousel-caption{
-    background:linear-gradient(360deg,black, transparent 110%);
+    background:linear-gradient(360deg,black, transparent 50%);
     padding: 5px;
-    border-radius:100px;
+    border-radius:15px;
+    bottom: -5px;
+}
+#bootstrap-overrides .carousel-caption { 
+  margin-bottom: 5px !important;
+}
+.carousel-caption h5 {
+    font-family: 'Sriracha', cursive;
+    text-shadow: 1px 1px 8px black, -1px -1px 8px black, 1px -1px 8px black, -1px 1px 8px black;
+}
+
+.carousel-caption h5:hover {
+    text-shadow: 1px 1px 8px rgba(247, 182, 4, 0.98), -1px -1px 8px rgba(9, 33, 247, 0.96), 1px -1px 8px rgba(239, 9, 28, 0.97), -1px 1px 8px rgba(244, 205, 9, 1);
+    -webkit-transition: text-shadow 250ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: text-shadow 250ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+.carousel-caption h5::before{
+    
+}
+.carousel-caption h5::after{
+    
+}
+
+.viewProject{
+    border-radius: 5px;
+    background: darkblue;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    
+}
+.viewProject:hover{
+    background-image: linear-gradient(to right, #0459f8, 
+    rgba(250, 255, 121, 0.77), #0459f8, #0459f8);
+    background-position: 60% 0;
+    -webkit-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;
+    cursor: pointer;
+    text-align:justify;
+    border: none;
+    background-size: 300% 100%;
+    text-align: center;
+    color: black;
 }
 
 
