@@ -32,6 +32,9 @@
     border-radius: 5px 20px;
     padding: 30px;
 }
+.modal h2{
+    font-family: 'Sriracha', cursive;
+}
 
 
 .row{

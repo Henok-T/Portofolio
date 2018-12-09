@@ -353,7 +353,7 @@ margin-top: 20%;
 .carousel-caption{
     background:linear-gradient(360deg,black, transparent 50%);
     padding: 5px;
-    border-radius:15px;
+    border-radius:100px;
     bottom: -5px;
 }
 #bootstrap-overrides .carousel-caption { 
@@ -364,16 +364,53 @@ margin-top: 20%;
     text-shadow: 1px 1px 8px black, -1px -1px 8px black, 1px -1px 8px black, -1px 1px 8px black;
 }
 
+/*
 .carousel-caption h5:hover {
     text-shadow: 1px 1px 8px rgba(247, 182, 4, 0.98), -1px -1px 8px rgba(9, 33, 247, 0.96), 1px -1px 8px rgba(239, 9, 28, 0.97), -1px 1px 8px rgba(244, 205, 9, 1);
     -webkit-transition: text-shadow 250ms cubic-bezier(0.42, 0, 0.58, 1);
     transition: text-shadow 250ms cubic-bezier(0.42, 0, 0.58, 1);
 }
-.carousel-caption h5::before{
+*/
+
+.underlineEffect{
+    display: inline-block;
+    position: relative;
+}
+
+.underlineEffect::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 4px;
+    bottom: -4px;
+    left: 0;
+    background-color: blue;
+    transform-origin: bottom right;
+    transition: transform 0.35s ease-out;
     
 }
-.carousel-caption h5::after{
+.underlineEffect:hover::before{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+ /*///=====//*/
+.underlineEffect::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 4px;
+    bottom: -4px;
+    left: 0;
+    background-color: yellow;
+    transform-origin: top left;
+    transition: transform 0.35s ease-out;
     
+}
+.underlineEffect:hover::after{
+    transform: scaleX(1);
+    transform-origin: top right;
 }
 
 .viewProject{
