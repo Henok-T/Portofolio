@@ -356,9 +356,7 @@ margin-top: 20%;
     border-radius:100px;
     bottom: -5px;
 }
-#bootstrap-overrides .carousel-caption { 
-  margin-bottom: 5px !important;
-}
+
 .carousel-caption h5 {
     font-family: 'Sriracha', cursive;
     text-shadow: 1px 1px 8px black, -1px -1px 8px black, 1px -1px 8px black, -1px 1px 8px black;
@@ -424,14 +422,14 @@ margin-top: 20%;
     background-image: linear-gradient(to right, #0459f8, 
     rgba(250, 255, 121, 0.77), #0459f8, #0459f8);
     background-position: 60% 0;
-    -webkit-transition: all .8s ease-in-out;
-    transition: all .8s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
     cursor: pointer;
     text-align:justify;
     border: none;
     background-size: 300% 100%;
     text-align: center;
-    color: black;
+    color: wheat;
 }
 
 
