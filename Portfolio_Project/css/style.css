@@ -149,7 +149,7 @@ main {
 	height: 100vh;
     margin: 0;
     padding: 5vw 5vw calc(10vw + 1em);
-    background: url(../img/pattern2.png);
+/*    background: url(../img/pattern2.png);*/
 }
 
 /*===============================
@@ -355,11 +355,12 @@ margin-top: 20%;
     padding: 5px;
     border-radius:100px;
     bottom: -5px;
+    text-shadow: 1px 1px 8px black, -1px 1px 8px black;
 }
 
 .carousel-caption h5 {
     font-family: 'Sriracha', cursive;
-    text-shadow: 1px 1px 8px black, -1px -1px 8px black, 1px -1px 8px black, -1px 1px 8px black;
+    text-shadow: 1px 1px 8px black, -1px 1px 8px black;
 }
 
 /*
