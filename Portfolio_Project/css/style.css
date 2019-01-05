@@ -73,6 +73,7 @@ header{
     font-family: 'Sriracha', cursive;
     border-radius: 60px;
     z-index: 1;
+    text-align: center
 }
 
 header p{
