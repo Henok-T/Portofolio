@@ -300,29 +300,6 @@ main {
 
 } 
 
-@media only screen and (max-width: 640px){
-    .lists{
-        flex-direction: column;
-        margin-top: -50%;
-        height: 90vh;
-    }
-    .aboutMeText{
-        width: 100%;
-        padding: 10px;
-        font-size: 14px;
-        margin-top: 120px;
-    }
-    .socialBtns{
-        padding: 0;
-    }
-    #carouselExampleIndicators{
-        margin-top: 40%;
-        width: 100%;
-        height: 100%;
-    }
-
-} 
-
 .skills img {
     display: block;
     margin-left: auto;
@@ -470,4 +447,45 @@ margin-top: 20%;
 	.btn--menu {
 		display: block;
 	}
+}
+
+@media only screen and (max-width: 640px){
+    .lists{
+        flex-direction: column;
+        margin-top: -50%;
+        height: 90vh;
+    }
+    .aboutMeText{
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        margin-top: 120px;
+    }
+    .socialBtns{
+        padding: 0;
+    }
+    #carouselExampleIndicators{
+        margin-top: 40%;
+        width: 100%;
+        height: 100%;
+    }
+    .container-fluid{
+        width: 70%;
+        margin-top: 95px;
+    }
+    .skills img {
+        width:60%;
+    }
+    .btn{
+        margin-top: 30px;
+    }
+
+} 
+
+@media only screen and (max-width: 429px){
+/*
+    .container-fluid{
+        width: 50%;
+    }
+*/
 }
