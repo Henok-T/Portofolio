@@ -206,20 +206,18 @@ main {
 	margin: 0 -0.75em 1em;
 	color: #f3f7f4;
 	font-size: 1em;
-	background-color: rgb(21, 20, 17);
+	background-color: black;
 	border-radius:8px;
 	padding: 7px;
 }
 .btn-glow {
-	animation: glowing 1500ms infinite;
-    
-    
+	animation: glowing 6s infinite;
   }
   @keyframes glowing {
-	0% {box-shadow: 0 0 60px #fff;}
-	40% { box-shadow: 0 0 50px #fff;}
-	60% {box-shadow: 0 0 10px #fff;}
-	100% {box-shadow: 0 0 60px #fad406;}
+    100% {box-shadow: 0 0 140px #fff;}
+    60% {box-shadow: 0 0 120px #fff;}
+    60% { box-shadow: 0 0 80px #fff;}
+    100% {box-shadow: 0 0 140px #fff;}
   }
 
 .btn--menu-active .icon--menu,
