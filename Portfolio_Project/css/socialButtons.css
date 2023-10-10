@@ -3,7 +3,7 @@
     font-size: 0;
     list-style: none;
     margin-top: -30px;
-/*
+    /*
     padding: 48px;
     padding: 4.8rem;
     margin-top: 5px;
@@ -40,11 +40,13 @@
 .icon-Twitter:hover {
     background: #000;
     border-radius: 100%;
+    /*
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
     transition: background-color 0.5s, -webkit-transform 0.5s ease-out;
     transition: background-color 0.5s, transform 0.5s ease-out;
     transition: background-color 0.5s, transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+*/
 }
 
 /*
@@ -82,3 +84,29 @@
             color: #d926b5;
         }
 */
+
+
+/* .resume_button {
+
+    padding: 4px;
+    border-radius: 24px;
+    margin-left: 4.7rem;
+    margin-top: 10rem;
+    border-color: white;
+    color: white;
+    
+}
+
+.resume_button:hover {
+    background: lightblue;
+    border-color: white !important;
+} */
+
+
+.fa,
+.fa-file {
+    background-color: #e9eded;
+    padding: 12px;
+    border-radius: 50%;
+    margin-left: -25px;
+}
