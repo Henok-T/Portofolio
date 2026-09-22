@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Design tokens
+   Every color, size and timing value used by the site lives here.
+   Change a token once and it updates everywhere.
+   ========================================================================== */
+
+:root {
+  /* Type: one web font (Schibsted Grotesk) with a system fallback stack */
+  --font-sans: "Schibsted Grotesk", "Segoe UI", system-ui, -apple-system, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  /* Type scale (roughly 1.25 ratio, fluid at the top end) */
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.375rem, 1.25rem + 0.5vw, 1.625rem);
+  --step-3: clamp(1.75rem, 1.4rem + 1.3vw, 2.375rem);
+  --step-4: clamp(2.125rem, 1.5rem + 2.6vw, 3.5rem);
+  --step-5: clamp(2.5rem, 1.35rem + 4.9vw, 5rem);
+
+  --leading-tight: 1.04;
+  --leading-snug: 1.25;
+  --leading-body: 1.62;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-section: clamp(4rem, 2.75rem + 5.5vw, 7.5rem);
+
+  /* Layout */
+  --wrap: 74rem;
+  --gutter: clamp(1.125rem, 0.6rem + 2.4vw, 2.5rem);
+  --measure: 62ch;
+  --header-h: 4.25rem;
+
+  /* Shape: radii grow with the size of the element */
+  --radius-xs: 5px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-base: 240ms;
+
+  /* ---- Light theme (default) ---- */
+  color-scheme: light;
+  --bg: #f3f5f7;            /* cool paper */
+  --surface: #ffffff;
+  --surface-2: #e9edf2;
+  --text: #16202b;          /* ink */
+  --muted: #4f5b6a;         /* slate */
+  --border: #d3dae2;
+  --border-strong: #b3bdc9;
+  --primary: #2c44c9;       /* cobalt */
+  --primary-hover: #2236a6;
+  --primary-soft: #e3e8fb;
+  --on-primary: #ffffff;
+  --accent: #0a7a52;        /* resolved green */
+  --accent-soft: #dcf1e8;
+  --problem: #b42318;       /* strike-through ink */
+  --shadow: 0 1px 2px rgb(22 32 43 / 0.06), 0 8px 24px -12px rgb(22 32 43 / 0.18);
+  --shot-l: 88%;            /* lightness used by screenshot placeholders */
+  --shot-ink: 30%;
+
+  /* Illustration tokens */
+  --illo-line: var(--text);
+  --illo-paper: #ffffff;
+  --illo-primary: #2c44c9;
+  --illo-green: #0a7a52;
+  --illo-sky: #3d8bfd;
+  --illo-coffee: #e8772e;
+  --illo-soft: #e9edf2;
+}
+
+/* ---- Dark theme values, shared by the two selectors below ---- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #131a23;
+    --surface: #1a232f;
+    --surface-2: #212c3a;
+    --text: #e8edf3;
+    --muted: #a3afbe;
+    --border: #2e3a49;
+    --border-strong: #46546a;
+    --primary: #9aaaff;
+    --primary-hover: #b8c3ff;
+    --primary-soft: #252f52;
+    --on-primary: #131a23;
+    --accent: #4fd1a0;
+    --accent-soft: #173a30;
+    --problem: #ff8a80;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -14px rgb(0 0 0 / 0.6);
+    --shot-l: 26%;
+    --shot-ink: 82%;
+
+    /* Illustration tokens */
+    --illo-line: var(--text);
+    --illo-paper: #222d3b;
+    --illo-primary: #9aaaff;
+    --illo-green: #4fd1a0;
+    --illo-sky: #6aa6ff;
+    --illo-coffee: #f29a5e;
+    --illo-soft: #2a3647;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #131a23;
+  --surface: #1a232f;
+  --surface-2: #212c3a;
+  --text: #e8edf3;
+  --muted: #a3afbe;
+  --border: #2e3a49;
+  --border-strong: #46546a;
+  --primary: #9aaaff;
+  --primary-hover: #b8c3ff;
+  --primary-soft: #252f52;
+  --on-primary: #131a23;
+  --accent: #4fd1a0;
+  --accent-soft: #173a30;
+  --problem: #ff8a80;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -14px rgb(0 0 0 / 0.6);
+  --shot-l: 26%;
+  --shot-ink: 82%;
+
+  /* Illustration tokens */
+  --illo-line: var(--text);
+  --illo-paper: #222d3b;
+  --illo-primary: #9aaaff;
+  --illo-green: #4fd1a0;
+  --illo-sky: #6aa6ff;
+  --illo-coffee: #f29a5e;
+  --illo-soft: #2a3647;
+}

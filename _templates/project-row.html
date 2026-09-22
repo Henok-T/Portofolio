@@ -1,0 +1,26 @@
+<!--
+  PROJECT ROW TEMPLATE
+  Paste inside <ul class="projects"> on /index.html (homepage, uses <h3>)
+  or /projects/index.html (uses <h2 class="project-title"> and needs data-category).
+
+  data-category: one or more of  website  webapp  software   (space-separated)
+  --hue: 0–360, tints the placeholder until you add a screenshot.
+-->
+<li class="project" id="PROJECT-SLUG" data-category="website">
+  <a href="https://example.com/" rel="noopener noreferrer" target="_blank" tabindex="-1" aria-hidden="true">
+    <div class="shot">
+      <div class="shot-bar"><i></i><i></i><i></i><span class="shot-url">example.com</span></div>
+      <img src="/assets/images/projects/PROJECT-SLUG.webp" srcset="/assets/images/projects/PROJECT-SLUG-800.webp 800w, /assets/images/projects/PROJECT-SLUG.webp 1600w" sizes="(min-width: 760px) 15rem, 100vw" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+    </div>
+  </a>
+  <div>
+    <p class="project-type">Website</p>
+    <h2 class="project-title">Project name</h2>
+    <p class="project-desc">One or two sentences: who it's for, and the problem it solves.</p>
+    <div class="project-links">
+      <!-- <a class="link-arrow" href="/projects/PROJECT-SLUG/">Read the case study</a> -->
+      <a class="link-arrow" href="https://example.com/" rel="noopener noreferrer" target="_blank">Visit the site <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
+      <!-- <a class="link-arrow" href="https://github.com/Henok-T/REPO" rel="noopener">View code on GitHub</a> -->
+    </div>
+  </div>
+</li>

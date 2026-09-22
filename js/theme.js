@@ -1,38 +1,51 @@
-(function () {
-  const storageKey = "ht-theme";
+/*
+ * Theme toggle
+ * - First visit follows the system setting (prefers-color-scheme).
+ * - Clicking the toggle saves an explicit choice in localStorage.
+ * - The tiny inline script in <head> applies a saved choice before paint.
+ */
+(() => {
+  const root = document.documentElement;
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const STORAGE_KEY = 'theme';
+  const BAR_COLORS = { light: '#f3f5f7', dark: '#131a23' };
 
-  function systemTheme() {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  }
+  const currentTheme = () =>
+    root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light');
 
-  function currentTheme() {
-    return document.documentElement.getAttribute("data-theme") || systemTheme();
-  }
+  function syncUi() {
+    const theme = currentTheme();
+    const next = theme === 'dark' ? 'light' : 'dark';
 
-  function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    const toggle = document.querySelector("[data-theme-toggle]");
-    if (toggle) {
-      const next = theme === "dark" ? "light" : "dark";
-      toggle.setAttribute("aria-label", "Switch to " + next + " mode");
-      toggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+    document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+      button.setAttribute('aria-label', `Switch to ${next} theme`);
+      button.title = `Switch to ${next} theme`;
+    });
+
+    // Only override the browser bar color once the visitor has made a choice
+    if (root.hasAttribute('data-theme')) {
+      document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+        meta.setAttribute('content', BAR_COLORS[theme]);
+      });
     }
   }
 
-  const saved = localStorage.getItem(storageKey);
-  applyTheme(saved === "light" || saved === "dark" ? saved : systemTheme());
-
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-    if (!localStorage.getItem(storageKey)) {
-      applyTheme(event.matches ? "dark" : "light");
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem(STORAGE_KEY, theme);
+    } catch {
+      /* Storage can be unavailable (private mode); the choice still applies for this page. */
     }
+    syncUi();
+  }
+
+  document.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-theme-toggle]');
+    if (!button) return;
+    setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
   });
 
-  document.addEventListener("click", (event) => {
-    const btn = event.target.closest("[data-theme-toggle]");
-    if (!btn) return;
-    const next = currentTheme() === "dark" ? "light" : "dark";
-    localStorage.setItem(storageKey, next);
-    applyTheme(next);
-  });
+  systemDark.addEventListener('change', syncUi);
+  syncUi();
 })();

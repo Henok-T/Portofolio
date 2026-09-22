@@ -1,0 +1,598 @@
+/* ==========================================================================
+   Components: pieces reused across pages
+   ========================================================================== */
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-base) ease, background-color var(--dur-base) ease;
+}
+
+/* The blur lives on a pseudo-element: backdrop-filter on the header itself
+   would trap the fixed mobile menu button and sheet inside the header. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  backdrop-filter: saturate(1.4) blur(12px);
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: var(--header-h);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-right: auto;
+}
+
+.brand:hover {
+  color: var(--text);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand-role {
+  display: block;
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.brand-name {
+  display: block;
+  line-height: 1.2;
+}
+
+/* ---------- Primary navigation ---------- */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="true"],
+.nav-list a[aria-current="page"] {
+  color: var(--text);
+}
+
+.nav-list a[aria-current="true"],
+.nav-list a[aria-current="page"] {
+  box-shadow: inset 0 -2px 0 var(--primary);
+  border-radius: 0;
+}
+
+.nav-panel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.nav-toggle,
+.nav-close,
+.nav-backdrop {
+  display: none;
+}
+
+/* No-JS and small screens: nav scrolls horizontally under the brand */
+@media (max-width: 859.98px) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  /* With JS: a bottom sheet opened by a thumb-reachable button */
+  .js .site-nav {
+    order: 0;
+    width: auto;
+    overflow: visible;
+  }
+
+  .js .nav-toggle {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 55;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 3.25rem;
+    padding: 0 var(--space-5);
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: var(--text);
+    color: var(--bg);
+    font: inherit;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+  }
+
+  .js .nav-panel {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 60;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--gutter) max(var(--space-5), env(safe-area-inset-bottom));
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: 0 -12px 40px -20px rgb(0 0 0 / 0.45);
+    transform: translateY(105%);
+    visibility: hidden;
+    transition: transform var(--dur-base) var(--ease-out), visibility 0s linear var(--dur-base);
+  }
+
+  .js .nav-panel.is-open {
+    transform: none;
+    visibility: visible;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .js .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .js .nav-list a {
+    min-height: 3.25rem;
+    padding-inline: var(--space-2);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    color: var(--text);
+    font-size: var(--step-1);
+    font-weight: 600;
+    box-shadow: none;
+  }
+
+  .js .nav-list a[aria-current="true"],
+  .js .nav-list a[aria-current="page"] {
+    color: var(--primary);
+  }
+
+  .js .nav-cta {
+    display: inline-flex;
+  }
+
+  .js .nav-close {
+    display: inline-flex;
+    align-self: stretch;
+    justify-content: center;
+  }
+
+  .js .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 58;
+    display: block;
+    background: rgb(10 14 20 / 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--dur-base) ease;
+  }
+
+  .js .nav-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Keep the floating menu button from covering the last lines of the page */
+  .js body {
+    padding-bottom: 4.5rem;
+  }
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 3rem;
+  padding: 0 var(--space-5);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-weight: 650;
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  color: var(--on-primary);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.btn-quiet {
+  min-height: 2.75rem;
+  padding-inline: var(--space-3);
+  background: transparent;
+  color: var(--text);
+}
+
+.btn-quiet:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ---------- Theme toggle ---------- */
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) ease, background-color var(--dur-fast) ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--border-strong);
+}
+
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Show the icon for the theme you'd switch TO */
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+
+/* ---------- Text link with arrow icon ---------- */
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.link-arrow svg {
+  width: 1em;
+  height: 1em;
+  transition: transform var(--dur-fast) ease;
+}
+
+.link-arrow:hover {
+  text-decoration: underline;
+}
+
+.link-arrow:hover svg {
+  transform: translate(2px, -2px);
+}
+
+
+/* ---------- Screenshot frame ---------- */
+
+.shot {
+  --hue: 228;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: hsl(var(--hue) 30% var(--shot-l));
+}
+
+.shot-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.shot-bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.shot-url {
+  margin-left: var(--space-2);
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* ---------- Forms ---------- */
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.field label {
+  font-weight: 650;
+}
+
+.field .hint {
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 3.125rem;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: max(1rem, 16px); /* 16px+ stops iOS zooming on focus */
+  transition: border-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
+}
+
+.textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23808a98' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1.1rem;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+.input[aria-invalid="true"],
+.select[aria-invalid="true"],
+.textarea[aria-invalid="true"] {
+  border-color: var(--problem);
+}
+
+.field-error {
+  display: flex;
+  gap: var(--space-2);
+  color: var(--problem);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+/* Honeypot: hidden from people, visible to naive bots */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.form-status[data-state="success"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.form-status[data-state="error"] {
+  border-color: var(--problem);
+}
+
+.form-status h3 {
+  font-size: var(--step-0);
+  margin-bottom: var(--space-2);
+}
+
+.form-status .btn-row {
+  margin-top: var(--space-3);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding-block: var(--space-7);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.footer-inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--muted);
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+@media (min-width: 760px) {
+  .footer-inner {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+/* Nav visibility rules that must beat the generic .btn display */
+.nav-panel .nav-close { display: none; }
+
+@media (max-width: 859.98px) {
+  .nav-panel .nav-cta { display: none; }
+  .js .nav-panel .nav-cta,
+  .js .nav-panel .nav-close { display: inline-flex; }
+}
+
+@media (max-width: 859.98px) {
+  .js .nav-list a { display: flex; width: 100%; }
+}
+
+/* Brand mark is now an image file, not a text monogram */
+img.brand-mark {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-sm);
+  background: none;
+  object-fit: contain;
+}
+
+/* Brand mark image already carries the plate, so no background here */
+img.brand-mark { background: none; padding: 0; }

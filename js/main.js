@@ -1,74 +1,152 @@
-(function () {
-  const nav = document.querySelector("[data-nav]");
-  const toggle = document.querySelector("[data-nav-toggle]");
+/*
+ * Site-wide behavior
+ * 1. Mobile navigation (bottom sheet)
+ * 2. Header border once the page scrolls
+ * 3. Highlight the nav link for the section in view (homepage only)
+ * 4. Footer year
+ * 5. Service worker registration
+ */
 
-  function closeNav() {
-    if (!nav || !toggle) return;
-    nav.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", "false");
+/* ---------- 1. Mobile navigation ---------- */
+function initMobileNav() {
+  const toggle = document.querySelector('[data-nav-toggle]');
+  const panel = document.querySelector('[data-nav-panel]');
+  const backdrop = document.querySelector('[data-nav-backdrop]');
+  const closeButton = document.querySelector('[data-nav-close]');
+  if (!toggle || !panel) return;
+
+  const smallScreen = window.matchMedia('(max-width: 859.98px)');
+  // Everything outside the sheet becomes inert while it is open
+  const outside = [
+    document.querySelector('main'),
+    document.querySelector('footer'),
+    document.querySelector('.brand'),
+    document.querySelector('[data-theme-toggle]'),
+  ].filter(Boolean);
+  // The toggle itself stays out of this list: making the focused element inert
+  // makes the browser reset focus to <body> right after the sheet opens.
+
+
+  const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+
+  function setOpen(open, { restoreFocus = true } = {}) {
+    toggle.setAttribute('aria-expanded', String(open));
+    panel.classList.toggle('is-open', open);
+    backdrop?.classList.toggle('is-visible', open);
+    outside.forEach((el) => { el.inert = open; });
+
+    if (open) {
+      // Wait a frame so the sheet is visible (and focusable) first
+      window.requestAnimationFrame(() => panel.querySelector('a, button')?.focus());
+    } else if (restoreFocus) {
+      toggle.focus();
+    }
   }
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+  toggle.addEventListener('click', () => setOpen(!isOpen()));
+  closeButton?.addEventListener('click', () => setOpen(false));
+  backdrop?.addEventListener('click', () => setOpen(false));
 
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeNav);
-    });
+  // Following a link closes the sheet; the browser moves to the target
+  panel.addEventListener('click', (event) => {
+    if (event.target.closest('a') && isOpen()) setOpen(false, { restoreFocus: false });
+  });
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeNav();
-    });
-  }
+  document.addEventListener('keydown', (event) => {
+    if (!isOpen()) return;
 
-  const year = document.querySelector("[data-year]");
-  if (year) year.textContent = String(new Date().getFullYear());
+    if (event.key === 'Escape') {
+      setOpen(false);
+      return;
+    }
 
-  const form = document.querySelector("[data-contact-form]");
-  if (form) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const status = form.querySelector("[data-form-status]");
-      const name = form.querySelector("#name");
-      const email = form.querySelector("#email");
-      const message = form.querySelector("#message");
-      const service = form.querySelector("#service");
-
-      const errors = [];
-      if (!name.value.trim()) errors.push("Please add your name.");
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        errors.push("Please add a valid email address.");
+    // Keep Tab inside the sheet
+    if (event.key === 'Tab') {
+      const focusable = [...panel.querySelectorAll('a[href], button:not([disabled])')];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
-      if (!message.value.trim() || message.value.trim().length < 12) {
-        errors.push("Please include a short description of what you need.");
-      }
+    }
+  });
 
-      if (!status) return;
-      if (errors.length) {
-        status.className = "form-status is-visible err";
-        status.textContent = errors.join(" ");
-        status.focus();
-        return;
-      }
+  // Growing past the breakpoint turns the sheet back into the inline nav
+  smallScreen.addEventListener('change', () => {
+    if (isOpen()) setOpen(false, { restoreFocus: false });
+  });
+}
 
-      const draft =
-        "Name: " + name.value.trim() +
-        "\nEmail: " + email.value.trim() +
-        "\nService: " + (service.value || "Not specified") +
-        "\n\n" + message.value.trim();
+/* ---------- 2. Header state ---------- */
+function initHeaderState() {
+  const header = document.querySelector('[data-header]');
+  if (!header) return;
 
-      status.className = "form-status is-visible ok";
-      status.innerHTML =
-        "This form is not connected to a server yet, so nothing was sent automatically. Copy the message below and send it through LinkedIn." +
-        "<pre style='white-space:pre-wrap;margin:.7rem 0 0;font:inherit'>" +
-        draft.replace(/[<>]/g, "") +
-        "</pre>";
+  let ticking = false;
+  const update = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+    ticking = false;
+  };
 
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(draft).catch(function () {});
-      }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  update();
+}
+
+/* ---------- 3. Current-section highlighting ---------- */
+function initSectionHighlight() {
+  const links = [...document.querySelectorAll('.nav-list a[href^="/#"]')];
+  const sections = links
+    .map((link) => document.getElementById(link.hash.slice(1)))
+    .filter(Boolean);
+
+  if (!sections.length || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      links.forEach((link) => {
+        if (link.hash === `#${entry.target.id}`) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
     });
-  }
-})();
+  }, { rootMargin: '-45% 0px -50% 0px' });
+
+  sections.forEach((section) => observer.observe(section));
+}
+
+/* ---------- 4. Footer year ---------- */
+function initYear() {
+  document.querySelectorAll('[data-year]').forEach((el) => {
+    el.textContent = String(new Date().getFullYear());
+  });
+}
+
+/* ---------- 5. Service worker ---------- */
+function registerServiceWorker() {
+  // HTTPS only, so local development never serves stale cached files
+  if (!('serviceWorker' in navigator) || window.location.protocol !== 'https:') return;
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {
+      /* The site works normally without it. */
+    });
+  });
+}
+
+initMobileNav();
+initHeaderState();
+initSectionHighlight();
+initYear();
+registerServiceWorker();
