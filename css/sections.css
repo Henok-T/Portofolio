@@ -660,32 +660,6 @@
   max-width: var(--measure);
 }
 
-.about-details {
-  display: grid;
-  gap: var(--space-5);
-  margin-top: var(--space-6);
-}
-
-.about-details h3 {
-  margin-bottom: var(--space-2);
-  font-size: var(--step-0);
-}
-
-.about-details ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.about-details li + li {
-  margin-top: var(--space-2);
-}
-
-.about-details li span {
-  display: block;
-  color: var(--muted);
-  font-size: var(--step--1);
-}
 
 @media (min-width: 900px) {
   .about-body {
@@ -1386,14 +1360,7 @@
   }
 }
 
-/* Coffee steam animation */
 @media (prefers-reduced-motion: no-preference) {
-  .ic-steam {
-    animation: ic-steam 2.4s ease-out infinite;
-  }
-  .ic-steam-2 { animation-delay: 0.6s; }
-  .ic-steam-3 { animation-delay: 1.2s; }
-
   .ic-gear {
     animation: ic-gear 10s linear infinite;
     transform-box: fill-box;
@@ -1404,12 +1371,6 @@
     transform-box: fill-box;
     transform-origin: center;
   }
-}
-
-@keyframes ic-steam {
-  0%   { opacity: 0; transform: translateY(0); }
-  40%  { opacity: 0.7; transform: translateY(-5px); }
-  100% { opacity: 0; transform: translateY(-10px); }
 }
 
 @keyframes ic-gear {

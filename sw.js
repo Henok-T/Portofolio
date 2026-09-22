@@ -5,7 +5,7 @@
  * - Images and fonts: cache first.
  * Bump VERSION whenever you deploy changes to CSS or JS.
  */
-const VERSION = 'v18-2026-09-22';
+const VERSION = 'v20-2026-09-22';
 const STATIC_CACHE = `static-${VERSION}`;
 const PAGE_CACHE = `pages-${VERSION}`;
 

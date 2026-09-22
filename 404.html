@@ -48,7 +48,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" data-header>
+  <header class="site-header" id="top" data-header>
     <div class="wrap header-inner">
       <a class="brand" href="/">
         <!-- Brand mark: /assets/images/logo-mark.png (tower-and-sun mark). Full lockup: /assets/images/logo-full.webp -->
@@ -99,16 +99,71 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <img class="footer-logo" src="/assets/images/logo-full.webp" width="240" height="167" alt="Asmara Web Design" loading="lazy" decoding="async">
-      <div class="footer-inner">
-        <p>© <span data-year>2026</span> Asmara Web Design. Web development and technical support in Metro Atlanta, GA.</p>
-        <ul class="footer-links" role="list">
-          <li><a href="/projects/">Projects</a></li>
-          <li><a href="https://www.linkedin.com/in/henok-t/" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://github.com/Henok-T" rel="noopener">GitHub</a></li>
+    <div class="wrap footer-grid">
+      <!-- Column 1: Brand -->
+      <div class="footer-col footer-brand">
+        <img class="footer-logo" src="/assets/images/logo-full.webp" width="180" height="125" alt="Asmara Web Design" loading="lazy" decoding="async">
+        <p class="footer-tagline">Websites for small businesses in Metro Atlanta, built and kept running.</p>
+        <ul class="footer-social" role="list">
+          <li>
+            <a href="https://www.linkedin.com/in/henok-t/" target="_blank" rel="noopener noreferrer" aria-label="Asmara Web Design on LinkedIn">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Henok-T" target="_blank" rel="noopener noreferrer" aria-label="Asmara Web Design on GitHub">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+            </a>
+          </li>
         </ul>
       </div>
+
+      <!-- Column 2: Navigate -->
+      <nav class="footer-col" aria-label="Footer navigation">
+        <h2 class="footer-heading">Navigate</h2>
+        <ul class="footer-links" role="list">
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/#about">About</a></li>
+          <li data-reviews-link class="nav-reviews-hidden"><a href="/reviews/">Reviews</a></li>
+        </ul>
+      </nav>
+
+      <!-- Column 3: Services -->
+      <nav class="footer-col" aria-label="Services">
+        <h2 class="footer-heading">Services</h2>
+        <ul class="footer-links" role="list">
+          <li><a href="/#service-web-development">Website development</a></li>
+          <li><a href="/#service-maintenance">Website maintenance</a></li>
+          <li><a href="/#service-support">Technical support</a></li>
+          <li><a href="/#service-pwa">Installable web apps</a></li>
+          <li><a href="/#service-tools">Small internal tools</a></li>
+          <li><a href="/#service-optimization">Speed and SEO cleanup</a></li>
+        </ul>
+      </nav>
+
+      <!-- Column 4: Let's talk -->
+      <div class="footer-col footer-talk">
+        <h2 class="footer-heading">Let's talk</h2>
+        <p class="footer-talk-line">Tell us what's stuck, or what you want to launch.</p>
+        <a class="btn btn-primary" href="/#contact">Start a project</a>
+        <ul class="footer-links" role="list">
+          <li><a href="https://www.linkedin.com/in/henok-t/" rel="noopener">Message us on LinkedIn</a></li>
+          <!-- Phone: uncomment and set a real number before showing it
+          <li><a href="tel:+1XXXXXXXXXX">Call (XXX) XXX-XXXX</a></li>
+          -->
+          <!-- Email: uncomment and set a real address before showing it
+          <li><a href="mailto:you@example.com">you@example.com</a></li>
+          -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p>© <span data-year>2026</span> Asmara Web Design. Web development and technical support in Metro Atlanta, GA.</p>
+      <a class="footer-top-link" href="#top">Back to top <span aria-hidden="true">▲</span></a>
     </div>
   </footer>
 </body>
