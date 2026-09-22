@@ -37,7 +37,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding-block: 0.625rem;
+  padding-block: 0.5rem;
   transition: padding-block var(--dur-base) var(--ease-out);
 }
 
@@ -46,7 +46,7 @@
 }
 
 .is-scrolled .header-brand-row {
-  padding-block: 0.3125rem;
+  padding-block: 0.25rem;
 }
 
 /* ---- Row 2: Nav ---- */
@@ -61,54 +61,37 @@
 
 .brand {
   display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
   grid-column: 2;
-  color: var(--text);
   text-decoration: none;
-  font-weight: 700;
-  letter-spacing: -0.01em;
 }
 
 .brand:hover {
-  color: var(--text);
+  opacity: 0.85;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  flex-shrink: 0;
-  border-radius: var(--radius-sm);
-  background: var(--text);
-  color: var(--bg);
-  font-size: 0.875rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  transition: width var(--dur-base) var(--ease-out), height var(--dur-base) var(--ease-out);
+/* Full logo image: sized by height so it scales proportionally */
+.brand img {
+  display: block;
+  width: auto;
+  height: clamp(80px, 9vw, 112px);
+  transition: height var(--dur-base) var(--ease-out);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brand-mark { transition: none; }
+  .brand img { transition: none; }
 }
 
-.is-scrolled .brand-mark {
-  width: 1.875rem;
-  height: 1.875rem;
+.is-scrolled .brand img {
+  height: 72px;
 }
 
-.brand-role {
-  display: block;
-  color: var(--muted);
-  font-size: var(--step--1);
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.brand-name {
-  display: block;
-  line-height: 1.2;
+@media (max-width: 859.98px) {
+  .brand img {
+    height: clamp(72px, 16vw, 88px);
+  }
+  .is-scrolled .brand img {
+    height: 60px;
+  }
 }
 
 .header-brand-row .theme-toggle {
@@ -727,22 +710,3 @@
   .js .nav-list a { display: flex; width: 100%; }
 }
 
-/* Brand mark is now an image file, not a text monogram */
-img.brand-mark {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: var(--radius-sm);
-  background: none;
-  object-fit: contain;
-  padding: 0;
-  transition: width var(--dur-base) var(--ease-out), height var(--dur-base) var(--ease-out);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  img.brand-mark { transition: none; }
-}
-
-.is-scrolled img.brand-mark {
-  width: 1.875rem;
-  height: 1.875rem;
-}
