@@ -86,9 +86,17 @@ function initHeaderState() {
   const header = document.querySelector('[data-header]');
   if (!header) return;
 
+  function syncHeight() {
+    document.documentElement.style.setProperty(
+      '--header-h',
+      header.getBoundingClientRect().height + 'px'
+    );
+  }
+
   let ticking = false;
   const update = () => {
     header.classList.toggle('is-scrolled', window.scrollY > 8);
+    syncHeight();
     ticking = false;
   };
 
@@ -98,6 +106,8 @@ function initHeaderState() {
       ticking = true;
     }
   }, { passive: true });
+
+  window.addEventListener('resize', syncHeight, { passive: true });
 
   update();
 }

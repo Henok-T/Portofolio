@@ -29,21 +29,45 @@
 }
 
 .header-inner {
-  display: flex;
+  /* rows stack naturally as a block container */
+}
+
+/* ---- Row 1: Brand ---- */
+.header-brand-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: var(--space-4);
-  min-height: var(--header-h);
+  padding-block: 0.625rem;
+  transition: padding-block var(--dur-base) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-brand-row { transition: none; }
+}
+
+.is-scrolled .header-brand-row {
+  padding-block: 0.3125rem;
+}
+
+/* ---- Row 2: Nav ---- */
+.header-nav-row {
+  border-top: 1px solid var(--rule-gold);
+}
+
+.header-nav-wrap {
+  display: flex;
+  justify-content: center;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
+  grid-column: 2;
   color: var(--text);
   text-decoration: none;
   font-weight: 700;
   letter-spacing: -0.01em;
-  margin-right: auto;
 }
 
 .brand:hover {
@@ -55,12 +79,23 @@
   place-items: center;
   width: 2.25rem;
   height: 2.25rem;
+  flex-shrink: 0;
   border-radius: var(--radius-sm);
   background: var(--text);
   color: var(--bg);
   font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0;
+  transition: width var(--dur-base) var(--ease-out), height var(--dur-base) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark { transition: none; }
+}
+
+.is-scrolled .brand-mark {
+  width: 1.875rem;
+  height: 1.875rem;
 }
 
 .brand-role {
@@ -74,6 +109,11 @@
 .brand-name {
   display: block;
   line-height: 1.2;
+}
+
+.header-brand-row .theme-toggle {
+  grid-column: 3;
+  justify-self: end;
 }
 
 /* ---------- Primary navigation ---------- */
@@ -127,15 +167,10 @@
   display: none;
 }
 
-/* No-JS and small screens: nav scrolls horizontally under the brand */
+/* No-JS mobile: nav row visible and scrolls horizontally */
 @media (max-width: 859.98px) {
-  .header-inner {
-    flex-wrap: wrap;
-  }
-
-  .site-nav {
-    order: 3;
-    width: 100%;
+  .header-nav-wrap {
+    justify-content: flex-start;
     overflow-x: auto;
   }
 
@@ -143,11 +178,11 @@
     display: none;
   }
 
-  /* With JS: a bottom sheet opened by a thumb-reachable button */
-  .js .site-nav {
-    order: 0;
-    width: auto;
-    overflow: visible;
+  /* With JS: collapse nav row — position:fixed children (toggle + panel) escape the clip */
+  .js .header-nav-row {
+    height: 0;
+    overflow: hidden;
+    border-top: none;
   }
 
   .js .nav-toggle {
@@ -699,7 +734,15 @@ img.brand-mark {
   border-radius: var(--radius-sm);
   background: none;
   object-fit: contain;
+  padding: 0;
+  transition: width var(--dur-base) var(--ease-out), height var(--dur-base) var(--ease-out);
 }
 
-/* Brand mark image already carries the plate, so no background here */
-img.brand-mark { background: none; padding: 0; }
+@media (prefers-reduced-motion: reduce) {
+  img.brand-mark { transition: none; }
+}
+
+.is-scrolled img.brand-mark {
+  width: 1.875rem;
+  height: 1.875rem;
+}
