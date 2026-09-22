@@ -8,7 +8,7 @@
   const root = document.documentElement;
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
   const STORAGE_KEY = 'theme';
-  const BAR_COLORS = { light: '#f3f5f7', dark: '#131a23' };
+  const BAR_COLORS = { light: '#FFFFFF', dark: '#062545' };
 
   const currentTheme = () =>
     root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light');

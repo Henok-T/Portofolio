@@ -143,7 +143,7 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   function composeMessage(data) {
     return [
-      `Hi City Bear Design, I'm ${data.name} (${data.email}).`,
+      `Hi Asmara Web Design, I'm ${data.name} (${data.email}).`,
       `I need: ${SERVICE_LABELS[data.service]}.`,
       '',
       data.message,

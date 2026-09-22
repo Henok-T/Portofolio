@@ -24,8 +24,8 @@ function starSvg(filled) {
 
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   path.setAttribute('d', STAR_PATHS.full);
-  path.setAttribute('fill', filled ? 'var(--illo-coffee)' : 'none');
-  path.setAttribute('stroke', 'var(--illo-coffee)');
+  path.setAttribute('fill', filled ? 'var(--illo-accent)' : 'none');
+  path.setAttribute('stroke', 'var(--illo-accent)');
   path.setAttribute('stroke-width', '1.5');
   path.setAttribute('stroke-linejoin', 'round');
 

@@ -6,6 +6,59 @@
 
 .hero {
   padding-block: clamp(2.5rem, 1rem + 6vw, 6.5rem) var(--space-section);
+  background: var(--brand-ink);
+  border-bottom: 1px solid var(--brand-gold);
+}
+
+/* Hero sits on an ink navy field: headline in sand, thin gold rule above it */
+.hero h1 {
+  color: var(--brand-sand);
+}
+
+.hero h1::before {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  margin-bottom: var(--space-5);
+  background: var(--brand-gold);
+}
+
+.hero .hero-intro {
+  color: var(--brand-sand);
+}
+
+.hero .status-dot {
+  background: var(--brand-gold);
+}
+
+.hero .status-dot::after {
+  border-color: var(--brand-gold);
+}
+
+.hero .lede {
+  color: color-mix(in srgb, #ffffff 82%, var(--brand-ink));
+}
+
+/* Buttons on the ink hero use the dark-field pairing regardless of theme */
+.hero .btn-primary {
+  background: var(--brand-gold);
+  color: var(--brand-ink);
+}
+
+.hero .btn-primary:hover {
+  background: var(--brand-sand);
+  color: var(--brand-ink);
+}
+
+.hero .btn-secondary {
+  border-color: var(--brand-sand);
+  color: var(--brand-sand);
+}
+
+.hero .btn-secondary:hover {
+  border-color: var(--brand-gold);
+  color: var(--brand-gold);
 }
 
 .hero-grid {
@@ -74,7 +127,7 @@
 .resolved {
   position: relative;
   padding: clamp(1.25rem, 0.9rem + 1.5vw, 2rem);
-  border: 1px solid var(--border);
+  border: 1px solid var(--rule-gold);
   border-radius: var(--radius-lg);
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -743,7 +796,7 @@
   display: grid;
   gap: var(--space-5);
   padding: clamp(1.25rem, 0.8rem + 2vw, 2.25rem);
-  border: 1px solid var(--border);
+  border: 1px solid var(--rule-gold);
   border-radius: var(--radius-lg);
   background: var(--surface);
 }
@@ -1061,7 +1114,7 @@
 .plan {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--border);
+  border: 1px solid var(--rule-gold);
   border-radius: var(--radius-md);
   background: var(--surface);
   overflow: hidden;
@@ -1069,7 +1122,7 @@
 }
 
 .plan--featured {
-  border: 2px solid var(--primary);
+  border: 2px solid var(--brand-gold);
   box-shadow: var(--shadow), 0 0 0 3px var(--primary-soft);
 }
 
@@ -1077,8 +1130,8 @@
   margin-left: auto;
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--on-primary) 18%, transparent);
-  color: var(--on-primary);
+  background: color-mix(in srgb, var(--brand-ink) 16%, transparent);
+  color: var(--brand-ink);
   font-size: var(--step--1);
   font-weight: 600;
   white-space: nowrap;
@@ -1091,9 +1144,9 @@
   padding: var(--space-5);
 }
 
-.plan-band--cub     { background: var(--accent);   color: var(--on-primary); }
-.plan-band--skyline { background: var(--primary);  color: var(--on-primary); }
-.plan-band--den     { background: var(--text);     color: var(--bg); }
+.plan-band--terrace  { background: var(--brand-navy); color: #ffffff; }
+.plan-band--skyline  { background: var(--brand-gold); color: var(--brand-ink); }
+.plan-band--landmark { background: var(--brand-ink);  color: var(--brand-sand); }
 
 .plan-icon {
   flex: none;
@@ -1102,6 +1155,7 @@
 }
 
 .plan-band h3 {
+  color: inherit; /* take the band's colour, not the global heading colour */
   font-size: var(--step-2);
   font-weight: 700;
 }
@@ -1374,7 +1428,7 @@
 .review-card {
   position: relative;
   padding: var(--space-6);
-  border: 1px solid var(--border);
+  border: 1px solid var(--rule-gold);
   border-radius: var(--radius-md);
   background: var(--surface);
   box-shadow: var(--shadow);

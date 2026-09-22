@@ -43,6 +43,7 @@ h3,
 h4 {
   margin: 0;
   line-height: var(--leading-snug);
+  color: var(--heading);
   font-weight: 700;
   letter-spacing: -0.015em;
   text-wrap: balance;
@@ -139,6 +140,15 @@ strong {
 
 .muted {
   color: var(--muted);
+}
+
+/* Deco eyebrows: small caps with a little tracking, matching the logo */
+.feature-kicker,
+.project-type,
+.plan-billing,
+.resolved-count {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 /* ---------- Accessibility helpers ---------- */

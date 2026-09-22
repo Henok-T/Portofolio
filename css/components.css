@@ -257,7 +257,7 @@
   min-height: 3rem;
   padding: 0 var(--space-5);
   border: 1.5px solid transparent;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-xs);
   font: inherit;
   font-weight: 650;
   line-height: 1.1;
@@ -535,9 +535,15 @@
 
 .site-footer {
   padding-block: var(--space-7);
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--brand-gold);
   color: var(--muted);
   font-size: var(--step--1);
+}
+
+.footer-logo {
+  width: min(240px, 60%);
+  height: auto;
+  margin-bottom: var(--space-6);
 }
 
 .footer-inner {

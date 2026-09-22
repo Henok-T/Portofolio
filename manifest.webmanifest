@@ -1,13 +1,13 @@
 {
-  "name": "City Bear Design — Web Development & Technical Support",
-  "short_name": "City Bear",
+  "name": "Asmara Web Design — Web Development & Technical Support",
+  "short_name": "Asmara",
   "description": "Websites, web apps, and technical support from Metro Atlanta.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "id": "/",
   "display": "standalone",
-  "background_color": "#f3f5f7",
-  "theme_color": "#2c44c9",
+  "background_color": "#FFFFFF",
+  "theme_color": "#062545",
   "lang": "en",
   "icons": [
     { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
