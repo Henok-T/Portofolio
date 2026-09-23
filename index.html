@@ -1,305 +1,936 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Asmara Web Design — Websites and technical support</title>
-  <meta name="description" content="We build websites, and we fix what breaks in them. Small-business sites, maintenance, and technical support from a Metro Atlanta studio." />
-  <meta name="theme-color" content="#0a6b64" />
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="header">
-    <div class="wrap header-bar">
-      <a class="brand-link" href="#main">
-        <img src="logo.png" alt="" width="188" height="88" />
-        <span><span class="brand-name">ASMARA</span><span class="brand-sub">web design</span></span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#about">About</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Asmara Web Design — Websites and technical support</title>
+    <meta
+      name="description"
+      content="We build websites, and we fix what breaks in them. Small-business sites, maintenance, and technical support from a Metro Atlanta studio."
+    />
+    <meta name="theme-color" content="#0a6b64" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="header">
+      <div class="wrap header-bar">
+        <a class="brand-link" href="#main">
+          <img src="logo.webp" alt="" width="188" height="88" />
+          <span
+            ><span class="brand-name">ASMARA</span
+            ><span class="brand-sub">web design</span></span
+          >
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#services">Services</a><a href="#work">Work</a
+          ><a href="#pricing">Pricing</a><a href="#about">About</a>
+        </nav>
+        <div>
+          <a class="btn btn-coral desktop-only" href="#contact"
+            >Start a project</a
+          >
+          <button
+            id="open-menu"
+            class="icon-btn menu-btn"
+            type="button"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
+    <dialog id="menu" class="menu" aria-label="Menu">
+      <div class="row-between">
+        <strong>Menu</strong
+        ><button
+          id="close-menu"
+          class="icon-btn"
+          type="button"
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+      </div>
+      <nav>
+        <a href="#services">Services</a><a href="#work">Work</a
+        ><a href="#pricing">Pricing</a><a href="#about">About</a
+        ><a href="#reviews">Reviews</a>
       </nav>
-      <div>
-        <a class="btn btn-coral desktop-only" href="#contact">Start a project</a>
-        <button id="open-menu" class="icon-btn menu-btn" type="button" aria-label="Open menu">☰</button>
-      </div>
-    </div>
-  </header>
-  <dialog id="menu" class="menu" aria-label="Menu">
-    <div class="row-between"><strong>Menu</strong><button id="close-menu" class="icon-btn" type="button" aria-label="Close menu">✕</button></div>
-    <nav>
-      <a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#reviews">Reviews</a>
-    </nav>
-    <a class="btn btn-coral btn-block" href="#contact">Start a project</a>
-  </dialog>
-  <main id="main">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="pill">Metro Atlanta, GA · Taking on new projects</p>
-          <h1>We build websites, and we <em>fix what breaks</em> in them.</h1>
-          <p class="lede">Small businesses get a fast, clear site they can grow with. Teams get problems traced to the root, the same way we have handled production software since 2020.</p>
-          <div class="actions">
-            <a class="btn btn-coral" href="#contact">Start a project</a>
-            <a class="btn btn-ghost" href="#work">See the work</a>
-          </div>
-        </div>
-        <aside class="card">
-          <div class="row-between"><strong>Recently resolved</strong><span class="tag">From real projects</span></div>
-          <ol class="fixes">
-            <li><p class="num">01</p><p><strong>A booking form looked fine but never sent anything</strong></p><p class="muted">Traced the silent failure and connected a working email service.</p></li>
-            <li><p class="num">02</p><p><strong>Refreshing any article page returned a 404</strong></p><p class="muted">Fixed client-side routing and article paths on a single-page blog.</p></li>
-            <li><p class="num">03</p><p><strong>A team's workflow kept hitting the same blocker</strong></p><p class="muted">Built a small internal app to take it off their plate.</p></li>
-          </ol>
-          <button class="text-link" type="button" data-ask data-service="support" data-seed="I have something stuck: ">Have something stuck? Ask for technical help.</button>
-        </aside>
-      </div>
-    </section>
-    <section id="services" class="section">
-      <div class="wrap split">
-        <div>
-          <p class="kicker">What we can help with</p>
-          <h2>Each engagement starts from a problem, not a package.</h2>
-          <p class="muted" style="margin-top:1rem">These are the ones we solve most often.</p>
-          <button class="text-link" type="button" data-ask data-seed="I'm not sure which of these fits. ">Not sure which of these fits? Describe the problem.</button>
-        </div>
-        <ul class="services">
-          <li class="service"><span class="mark">01</span><div><h3>Websites for small businesses</h3><p>You need a site that explains what you do and makes it easy to call, book, or order. We design and build it by hand, so it loads fast and stays easy to change.</p><ul class="chips"><li class="chip">Single-page and multi-page sites</li><li class="chip">Menus, booking, contact forms</li><li class="chip">Mobile-first layouts</li></ul></div></li>
-          <li class="service"><span class="mark">02</span><div><h3>Website maintenance and fixes</h3><p>Your site mostly works, but a form fails, a page breaks on phones, or content is out of date. We find the cause, fix it, and tell you what changed.</p><ul class="chips"><li class="chip">Bug and layout fixes</li><li class="chip">Content and menu updates</li><li class="chip">WordPress edits</li></ul></div></li>
-          <li class="service"><span class="mark">03</span><div><h3>Technical support and troubleshooting</h3><p>Something in your software is failing and nobody can say why. We reproduce it, isolate the cause, and write down the fix so the next person can handle it faster.</p><ul class="chips"><li class="chip">Issue reproduction and root cause</li><li class="chip">Debugging and testing</li><li class="chip">Clear written handoffs</li></ul></div></li>
-          <li class="service"><span class="mark">04</span><div><h3>Installable web apps</h3><p>You want something people can add to their home screen and use like an app, without app-store overhead. We build progressive web apps in plain JavaScript.</p><ul class="chips"><li class="chip">Service workers and install prompts</li><li class="chip">Local data storage</li><li class="chip">Audio and media features</li></ul></div></li>
-          <li class="service"><span class="mark">05</span><div><h3>Speed, accessibility and SEO cleanup</h3><p>Your pages are slow, hard to use with a keyboard, or invisible in search. We tidy the markup, structure, and assets so people and search engines can read them.</p><ul class="chips"><li class="chip">Semantic HTML and headings</li><li class="chip">Image and font loading</li><li class="chip">Metadata and structured data</li></ul></div></li>
-        </ul>
-      </div>
-    </section>
-    <section class="section band">
-      <div class="wrap">
-        <p class="kicker">How a project runs</p>
-        <h2>Four steps, with a checkpoint at each one.</h2>
-        <ol class="steps">
-          <li><span class="step-no">1</span><h3>Talk it through</h3><p>You describe the problem or the goal. We reply with questions before proposing anything.</p></li>
-          <li><span class="step-no">2</span><h3>Agree on scope</h3><p>A short written plan: what gets built or fixed, what doesn't, and when.</p></li>
-          <li><span class="step-no">3</span><h3>Build and review</h3><p>You see working pages early and often, tested on real phones and browsers.</p></li>
-          <li><span class="step-no">4</span><h3>Launch and support</h3><p>We publish it, hand over notes on how it works, and stay available for fixes.</p></li>
-        </ol>
-      </div>
-    </section>
-    <section id="pricing" class="section">
-      <div class="wrap">
-        <p class="kicker">Pricing</p>
-        <h2>Three ways to get online.</h2>
-        <p class="muted" style="margin-top:1rem;max-width:28rem">Pick the one that fits your budget and how hands-on you want to be.</p>
-        <div class="plans">
-          <article class="plan">
-            <p class="quiet muted">Monthly subscription</p>
-            <h3>Dante Plan</h3>
-            <p class="blurb">One sharp page that tells people who you are and how to reach you.</p>
-            <p class="price"><strong>$49</strong><span class="quiet">/ month</span></p>
-            <p class="note quiet muted">6-month minimum, then month to month.</p>
-            <ul>
-              <li><span class="check">✓</span>One-page website with a working contact form</li>
-              <li><span class="check">✓</span>Hosting and SSL included</li>
-              <li><span class="check">✓</span>Small content updates, up to 30 minutes a month</li>
-              <li><span class="check">✓</span>Replies within one business day</li>
-              <li><span class="check">✓</span>Domain billed yearly at cost</li>
-            </ul>
-            <div class="col">
-              <button class="btn btn-ink" type="button" data-ask data-plan="Dante Plan">Choose Dante Plan</button>
-              <button class="text-link" type="button" data-details="Dante Plan">Full details</button>
-            </div>
-          </article>
-          <article class="plan recommended">
-            <div class="row-between"><p class="quiet">Monthly subscription</p><span class="recommend">Recommended</span></div>
-            <h3>Impero Plan</h3>
-            <p class="blurb">A complete website for one predictable monthly price.</p>
-            <p class="price"><strong>$149</strong><span class="quiet">/ month</span></p>
-            <p class="note quiet">12-month minimum, then month to month.</p>
-            <ul>
-              <li><span class="check">✓</span>Up to 5 pages, written and built for you</li>
-              <li><span class="check">✓</span>Hosting and SSL included</li>
-              <li><span class="check">✓</span>Content updates, up to 2 hours a month</li>
-              <li><span class="check">✓</span>Monthly check for broken links, errors and accessibility issues</li>
-              <li><span class="check">✓</span>Replies within one business day</li>
-              <li><span class="check">✓</span>Domain billed yearly at cost</li>
-            </ul>
-            <div class="col">
-              <button class="btn btn-coral" type="button" data-ask data-plan="Impero Plan">Choose Impero Plan</button>
-              <button class="text-link" type="button" data-details="Impero Plan" style="color:inherit">Full details</button>
-            </div>
-          </article>
-          <article class="plan">
-            <p class="quiet muted">One-time build</p>
-            <h3>Roma Plan</h3>
-            <p class="blurb">Build it once and own it outright.</p>
-            <p class="price"><strong>$1,499</strong><span class="quiet">+ hosting</span></p>
-            <p class="note quiet muted">Half to start, half at launch.</p>
-            <ul>
-              <li><span class="check">✓</span>Up to 5 pages, written and built for you</li>
-              <li><span class="check">✓</span>You own the code and the content</li>
-              <li><span class="check">✓</span>30 days of free fixes after launch</li>
-              <li><span class="check">✓</span>Hosting $20 / month</li>
-              <li><span class="check">✓</span>Domain billed yearly at cost</li>
-            </ul>
-            <div class="col">
-              <button class="btn btn-ink" type="button" data-ask data-plan="Roma Plan">Choose Roma Plan</button>
-              <button class="text-link" type="button" data-details="Roma Plan">Full details</button>
-            </div>
-          </article>
-        </div>
-        <div class="includes">
-          <p><strong>Every plan includes</strong></p>
-          <ul class="chips" style="margin-top:.7rem">
-            <li class="chip">Mobile-first design</li><li class="chip">Fast loading</li><li class="chip">Built to WCAG 2.2 AA</li><li class="chip">On-page SEO basics</li>
-          </ul>
-          <p class="muted" style="margin-top:1rem;font-size:.875rem">Need fixes to an existing site, or something that doesn't fit a plan? Tell us what you need and we'll send a free estimate.</p>
-          <button class="text-link" type="button" data-ask data-service="other" data-seed="I'd like a free estimate for work that doesn't fit a plan. ">Request an estimate</button>
-        </div>
-      </div>
-    </section>
-    <dialog id="plan-dialog" class="sheet" aria-labelledby="plan-title">
-      <div class="sheet-body">
-        <div class="row-between" style="align-items:flex-start">
-          <div><p id="plan-kicker" class="kicker"></p><h3 id="plan-title"></h3></div>
-          <button id="close-plan" class="icon-btn" type="button" aria-label="Close details">✕</button>
-        </div>
-        <p id="plan-lead" style="margin-top:.8rem"></p>
-        <p id="plan-care" class="muted" style="margin-top:.6rem"></p>
-        <p style="margin-top:1rem"><strong>Terms</strong></p>
-        <p id="plan-terms" class="muted" style="margin-top:.4rem;font-size:.875rem"></p>
-        <button id="plan-start" class="btn btn-coral" type="button" data-ask data-plan="" style="margin-top:1.2rem">Contact us to get started</button>
-      </div>
+      <a class="btn btn-coral btn-block" href="#contact">Start a project</a>
     </dialog>
-    <section id="work" class="section band">
-      <div class="wrap">
-        <p class="kicker">Selected work</p>
-        <h2>Websites for local businesses, plus one design concept.</h2>
-        <article class="feature" style="margin-top:2rem">
-          <a class="shot-link" href="https://jonahmobilelabs.com/" target="_blank" rel="noopener"><img class="shot" src="work/jonah.webp" alt="Jonah Mobile Labs website" /></a>
-          <div class="project-copy">
-            <p class="muted">jonahmobilelabs.com</p>
-            <p class="kind">Client website, Snellville, GA</p>
-            <h3>Jonah Mobile Labs</h3>
-            <p class="muted" style="margin-top:.7rem">A full redesign for a mobile lab that brings specimen collection and rapid testing to homes, workplaces, schools and events across Gwinnett County and Metro Atlanta.</p>
-            <p class="muted" style="margin-top:1rem;font-size:.875rem">Role · Full redesign and build</p>
-            <a class="text-link" href="https://jonahmobilelabs.com/" target="_blank" rel="noopener">Visit Jonah Mobile Labs</a>
-          </div>
-        </article>
-        <div class="cards">
-          <article class="project-card"><a href="https://7daysfacilityservice.com/" target="_blank" rel="noopener"><img class="shot" src="work/7days.webp" alt="7 Days Facility Service" /></a><div class="pad"><p class="muted">7daysfacilityservice.com</p><h3>7 Days Facility Service</h3><p class="kind">Client website, Charlotte, NC</p><p class="muted" style="margin-top:.7rem;font-size:.875rem">A single-page site for a hood cleaning, pressure washing and commercial cleaning company, built from their printed flyer into five clear services, each with its own quote request.</p><a class="text-link" href="https://7daysfacilityservice.com/" target="_blank" rel="noopener">Visit the site</a></div></article>
-          <article class="project-card"><a href="https://chibocafe.netlify.app/" target="_blank" rel="noopener"><img class="shot" src="work/chibo.webp" alt="Chibo" /></a><div class="pad"><p class="muted">chibocafe.netlify.app</p><h3>Chibo Ethiopian Coffee &amp; Kitchen</h3><p class="kind">Design concept, Concept site</p><p class="muted" style="margin-top:.7rem;font-size:.875rem">A warm, story-led site for a neighborhood café, with a tabbed menu, a section on the traditional jebena coffee ceremony, and a wall of customer reviews.</p><a class="text-link" href="https://chibocafe.netlify.app/" target="_blank" rel="noopener">Visit the site</a></div></article>
-          <article class="project-card"><a href="https://kostinaphoto.netlify.app/" target="_blank" rel="noopener"><img class="shot" src="work/kostina.webp" alt="Kostina" /></a><div class="pad"><p class="muted">kostinaphoto.netlify.app</p><h3>Kostina Photography</h3><p class="kind">Design concept, Concept site</p><p class="muted" style="margin-top:.7rem;font-size:.875rem">A design concept for a wedding and event photographer: a dark editorial look, a gallery filtered by event type, and an inquiry form that asks for the date and venue up front.</p><a class="text-link" href="https://kostinaphoto.netlify.app/" target="_blank" rel="noopener">View the concept</a></div></article>
-          <article class="project-card"><a href="https://vitablendz.netlify.app/" target="_blank" rel="noopener"><img class="shot" src="work/vitablendz.webp" alt="Vitablendz" /></a><div class="pad"><p class="muted">vitablendz.netlify.app</p><h3>Vitablendz</h3><p class="kind">Design concept, Concept site</p><p class="muted" style="margin-top:.7rem;font-size:.875rem">A bright, fresh site for a frozen yogurt and smoothie bar in central Stavanger, with opening hours, location and starting prices right on the first screen.</p><a class="text-link" href="https://vitablendz.netlify.app/" target="_blank" rel="noopener">Visit the site</a></div></article>
-          <article class="project-card"><a href="https://hdmona.netlify.app/" target="_blank" rel="noopener"><img class="shot" src="work/hdmona.webp" alt="Hdmona" /></a><div class="pad"><p class="muted">hdmona.netlify.app</p><h3>Hdmona Restaurant</h3><p class="kind">Design concept, Concept site</p><p class="muted" style="margin-top:.7rem;font-size:.875rem">A Norwegian-language site for an Eritrean and Ethiopian restaurant, built around a menu organized by category so guests can choose before they arrive.</p><a class="text-link" href="https://hdmona.netlify.app/" target="_blank" rel="noopener">Visit the site</a></div></article>
-        </div>
-      </div>
-    </section>
-    <section id="about" class="section">
-      <div class="wrap about-grid">
-        <div class="about-photo"><img src="about.webp" alt="Henok T., founding owner of Asmara Web Design" /></div>
-        <div>
-          <p class="kicker">Who you're working with</p>
-          <h2>A small studio with two halves.</h2>
-          <p class="lede">Asmara Web Design is a small studio in the Atlanta metro area with two halves that feed each other: building websites small businesses can actually run, and supporting the software behind them once it's live.</p>
-          <p style="margin-top:1rem">I'm Henok, the founding owner. I spend my working days keeping production software stable, which is why this studio cares as much about what happens after launch as about the launch itself. Everything is built in plain HTML, CSS, and JavaScript, so any developer can pick it up later.</p>
-          <p class="muted" style="margin-top:1.2rem;font-weight:600;font-size:.875rem">Henok T., Founding Owner</p>
-        </div>
-      </div>
-    </section>
-    <section class="section" style="padding-top:0">
-      <div class="wrap">
-        <div class="notice">
-          <div><p class="kicker">What clients say</p><p style="margin-top:.3rem">Reviews appear here only after a client approves the wording in writing. None are published yet.</p></div>
-          <a class="text-link" href="#reviews">Read the review policy</a>
-        </div>
-      </div>
-    </section>
-    <section id="reviews" class="section" style="padding-top:0">
-      <div class="wrap" style="max-width:48rem">
-        <h2>What clients say</h2>
-        <p class="lede">Feedback from businesses and teams that have worked with Asmara Web Design.</p>
-        <div class="empty">
-          <h3>No published reviews yet.</h3>
-          <p>We only list a review after the client approves the exact wording in writing. Nothing here is invented, shortened, or anonymous.</p>
-          <p>Worked with us? Send a note and we'll ask your permission before adding your review.</p>
-          <div class="actions">
-            <a class="btn btn-coral" href="#contact">Send a note</a>
-            <a class="btn btn-ghost" href="https://www.linkedin.com/in/henok-t/" target="_blank" rel="noopener">Ask on LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="contact" class="section">
-      <div class="wrap contact-grid">
-        <div>
-          <p class="kicker">Start a project</p>
-          <h2>Tell us what's stuck, or what you want to launch.</h2>
-          <p class="muted" style="margin-top:1rem">A new site, a fix to an existing one, or help tracing a software issue. We'll reply with a few questions before suggesting a plan.</p>
-          <ul class="contact-list">
-            <li><a href="https://www.linkedin.com/in/henok-t/" target="_blank" rel="noopener"><strong>LinkedIn</strong><br /><span class="muted">Fastest way to reach us right now</span></a></li>
-            <li><a href="https://github.com/Henok-T" target="_blank" rel="noopener"><strong>GitHub</strong><br /><span class="muted">Public code and training projects</span></a></li>
-            <li><strong>Studio</strong><br /><span class="muted">Metro Atlanta, GA</span></li>
-          </ul>
-        </div>
-        <form id="inquiry" class="form" novalidate>
-          <p class="muted" style="font-size:.875rem">All fields are required. We'll reply with questions before suggesting a plan.</p>
-          <div class="hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></div>
-          <div class="fields two">
-            <label>Name<input class="field" name="name" autocomplete="name" /><span class="error" data-error="name"></span></label>
-            <label>Email<input class="field" name="email" type="email" autocomplete="email" /><span class="error" data-error="email"></span></label>
-          </div>
-          <div class="fields">
-            <label>What do you need?
-              <select class="field" name="service">
-                <option value="">Choose one</option>
-                <option value="website">A new website</option>
-                <option value="maintenance">Fixes or updates to an existing site</option>
-                <option value="support">Technical support or troubleshooting</option>
-                <option value="pwa">An installable web app</option>
-                <option value="optimization">Speed, accessibility, or SEO cleanup</option>
-                <option value="other">Something else</option>
-              </select>
-              <span class="error" data-error="service"></span>
-            </label>
-            <label>Message<textarea class="field" name="message" rows="5" placeholder="What's happening now, and what would done look like?"></textarea><span class="error" data-error="message"></span></label>
-          </div>
-          <div class="actions">
-            <button class="btn btn-coral" type="submit">Prepare message</button>
-            <p class="muted" style="font-size:.875rem">Online sending isn't connected yet, so this prepares your note.</p>
-          </div>
-          <p id="form-status" style="margin-top:1rem;font-size:.875rem;font-weight:500"></p>
-          <div id="ready" class="ready" hidden>
-            <p><strong>Ready to send</strong></p>
-            <p class="muted" style="font-size:.875rem">Copy the note, open it in your email app, or message us on LinkedIn.</p>
-            <pre id="note"></pre>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="pill">Metro Atlanta, GA · Taking on new projects</p>
+            <h1>We build websites, and we <em>fix what breaks</em> in them.</h1>
+            <p class="lede">
+              Small businesses get a fast, clear site they can grow with. Teams
+              get problems traced to the root, the same way we have handled
+              production software since 2020.
+            </p>
             <div class="actions">
-              <button id="copy-note" class="btn btn-ink" type="button">Copy note</button>
-              <a id="mail-note" class="btn btn-ghost" href="mailto:?subject=Project%20note%20for%20Asmara%20Web%20Design">Open in email</a>
+              <a class="btn btn-coral" href="#contact">Start a project</a>
+              <a class="btn btn-ghost" href="#work">See the work</a>
             </div>
           </div>
-        </form>
+          <aside class="card">
+            <div class="row-between">
+              <strong>Recently resolved</strong
+              ><span class="tag">From real projects</span>
+            </div>
+            <ol class="fixes">
+              <li>
+                <p class="num">01</p>
+                <p>
+                  <strong
+                    >A booking form looked fine but never sent anything</strong
+                  >
+                </p>
+                <p class="muted">
+                  Traced the silent failure and connected a working email
+                  service.
+                </p>
+              </li>
+              <li>
+                <p class="num">02</p>
+                <p>
+                  <strong>Refreshing any article page returned a 404</strong>
+                </p>
+                <p class="muted">
+                  Fixed client-side routing and article paths on a single-page
+                  blog.
+                </p>
+              </li>
+              <li>
+                <p class="num">03</p>
+                <p>
+                  <strong
+                    >A team's workflow kept hitting the same blocker</strong
+                  >
+                </p>
+                <p class="muted">
+                  Built a small internal app to take it off their plate.
+                </p>
+              </li>
+            </ol>
+            <button
+              class="text-link"
+              type="button"
+              data-ask
+              data-service="support"
+              data-seed="I have something stuck: "
+            >
+              Have something stuck? Ask for technical help.
+            </button>
+          </aside>
+        </div>
+      </section>
+      <section id="services" class="section">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">What we can help with</p>
+            <h2>Each engagement starts from a problem, not a package.</h2>
+            <p class="muted" style="margin-top: 1rem">
+              These are the ones we solve most often.
+            </p>
+            <button
+              class="text-link"
+              type="button"
+              data-ask
+              data-seed="I'm not sure which of these fits. "
+            >
+              Not sure which of these fits? Describe the problem.
+            </button>
+          </div>
+          <ul class="services">
+            <li class="service">
+              <span class="mark">01</span>
+              <div>
+                <h3>Websites for small businesses</h3>
+                <p>
+                  You need a site that explains what you do and makes it easy to
+                  call, book, or order. We design and build it by hand, so it
+                  loads fast and stays easy to change.
+                </p>
+                <ul class="chips">
+                  <li class="chip">Single-page and multi-page sites</li>
+                  <li class="chip">Menus, booking, contact forms</li>
+                  <li class="chip">Mobile-first layouts</li>
+                </ul>
+              </div>
+            </li>
+            <li class="service">
+              <span class="mark">02</span>
+              <div>
+                <h3>Website maintenance and fixes</h3>
+                <p>
+                  Your site mostly works, but a form fails, a page breaks on
+                  phones, or content is out of date. We find the cause, fix it,
+                  and tell you what changed.
+                </p>
+                <ul class="chips">
+                  <li class="chip">Bug and layout fixes</li>
+                  <li class="chip">Content and menu updates</li>
+                  <li class="chip">WordPress edits</li>
+                </ul>
+              </div>
+            </li>
+            <li class="service">
+              <span class="mark">03</span>
+              <div>
+                <h3>Technical support and troubleshooting</h3>
+                <p>
+                  Something in your software is failing and nobody can say why.
+                  We reproduce it, isolate the cause, and write down the fix so
+                  the next person can handle it faster.
+                </p>
+                <ul class="chips">
+                  <li class="chip">Issue reproduction and root cause</li>
+                  <li class="chip">Debugging and testing</li>
+                  <li class="chip">Clear written handoffs</li>
+                </ul>
+              </div>
+            </li>
+            <li class="service">
+              <span class="mark">04</span>
+              <div>
+                <h3>Installable web apps</h3>
+                <p>
+                  You want something people can add to their home screen and use
+                  like an app, without app-store overhead. We build progressive
+                  web apps in plain JavaScript.
+                </p>
+                <ul class="chips">
+                  <li class="chip">Service workers and install prompts</li>
+                  <li class="chip">Local data storage</li>
+                  <li class="chip">Audio and media features</li>
+                </ul>
+              </div>
+            </li>
+            <li class="service">
+              <span class="mark">05</span>
+              <div>
+                <h3>Speed, accessibility and SEO cleanup</h3>
+                <p>
+                  Your pages are slow, hard to use with a keyboard, or invisible
+                  in search. We tidy the markup, structure, and assets so people
+                  and search engines can read them.
+                </p>
+                <ul class="chips">
+                  <li class="chip">Semantic HTML and headings</li>
+                  <li class="chip">Image and font loading</li>
+                  <li class="chip">Metadata and structured data</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section band">
+        <div class="wrap">
+          <p class="kicker">How a project runs</p>
+          <h2>Four steps, with a checkpoint at each one.</h2>
+          <ol class="steps">
+            <li>
+              <span class="step-no">1</span>
+              <h3>Talk it through</h3>
+              <p>
+                You describe the problem or the goal. We reply with questions
+                before proposing anything.
+              </p>
+            </li>
+            <li>
+              <span class="step-no">2</span>
+              <h3>Agree on scope</h3>
+              <p>
+                A short written plan: what gets built or fixed, what doesn't,
+                and when.
+              </p>
+            </li>
+            <li>
+              <span class="step-no">3</span>
+              <h3>Build and review</h3>
+              <p>
+                You see working pages early and often, tested on real phones and
+                browsers.
+              </p>
+            </li>
+            <li>
+              <span class="step-no">4</span>
+              <h3>Launch and support</h3>
+              <p>
+                We publish it, hand over notes on how it works, and stay
+                available for fixes.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section id="pricing" class="section">
+        <div class="wrap">
+          <p class="kicker">Pricing</p>
+          <h2>Three ways to get online.</h2>
+          <p class="muted" style="margin-top: 1rem; max-width: 28rem">
+            Pick the one that fits your budget and how hands-on you want to be.
+          </p>
+          <div class="plans">
+            <article class="plan">
+              <p class="quiet muted">Monthly subscription</p>
+              <h3>Dante Plan</h3>
+              <p class="blurb">
+                One sharp page that tells people who you are and how to reach
+                you.
+              </p>
+              <p class="price">
+                <strong>$49</strong><span class="quiet">/ month</span>
+              </p>
+              <p class="note quiet muted">
+                6-month minimum, then month to month.
+              </p>
+              <ul>
+                <li>
+                  <span class="check">✓</span>One-page website with a working
+                  contact form
+                </li>
+                <li><span class="check">✓</span>Hosting and SSL included</li>
+                <li>
+                  <span class="check">✓</span>Small content updates, up to 30
+                  minutes a month
+                </li>
+                <li>
+                  <span class="check">✓</span>Replies within one business day
+                </li>
+                <li>
+                  <span class="check">✓</span>Domain billed yearly at cost
+                </li>
+              </ul>
+              <div class="col">
+                <button
+                  class="btn btn-ink"
+                  type="button"
+                  data-ask
+                  data-plan="Dante Plan"
+                >
+                  Choose Dante Plan
+                </button>
+                <button
+                  class="text-link"
+                  type="button"
+                  data-details="Dante Plan"
+                >
+                  Full details
+                </button>
+              </div>
+            </article>
+            <article class="plan recommended">
+              <div class="row-between">
+                <p class="quiet">Monthly subscription</p>
+                <span class="recommend">Recommended</span>
+              </div>
+              <h3>Impero Plan</h3>
+              <p class="blurb">
+                A complete website for one predictable monthly price.
+              </p>
+              <p class="price">
+                <strong>$149</strong><span class="quiet">/ month</span>
+              </p>
+              <p class="note quiet">12-month minimum, then month to month.</p>
+              <ul>
+                <li>
+                  <span class="check">✓</span>Up to 5 pages, written and built
+                  for you
+                </li>
+                <li><span class="check">✓</span>Hosting and SSL included</li>
+                <li>
+                  <span class="check">✓</span>Content updates, up to 2 hours a
+                  month
+                </li>
+                <li>
+                  <span class="check">✓</span>Monthly check for broken links,
+                  errors and accessibility issues
+                </li>
+                <li>
+                  <span class="check">✓</span>Replies within one business day
+                </li>
+                <li>
+                  <span class="check">✓</span>Domain billed yearly at cost
+                </li>
+              </ul>
+              <div class="col">
+                <button
+                  class="btn btn-coral"
+                  type="button"
+                  data-ask
+                  data-plan="Impero Plan"
+                >
+                  Choose Impero Plan
+                </button>
+                <button
+                  class="text-link"
+                  type="button"
+                  data-details="Impero Plan"
+                  style="color: inherit"
+                >
+                  Full details
+                </button>
+              </div>
+            </article>
+            <article class="plan">
+              <p class="quiet muted">One-time build</p>
+              <h3>Roma Plan</h3>
+              <p class="blurb">Build it once and own it outright.</p>
+              <p class="price">
+                <strong>$1,499</strong><span class="quiet">+ hosting</span>
+              </p>
+              <p class="note quiet muted">Half to start, half at launch.</p>
+              <ul>
+                <li>
+                  <span class="check">✓</span>Up to 5 pages, written and built
+                  for you
+                </li>
+                <li>
+                  <span class="check">✓</span>You own the code and the content
+                </li>
+                <li>
+                  <span class="check">✓</span>30 days of free fixes after launch
+                </li>
+                <li><span class="check">✓</span>Hosting $20 / month</li>
+                <li>
+                  <span class="check">✓</span>Domain billed yearly at cost
+                </li>
+              </ul>
+              <div class="col">
+                <button
+                  class="btn btn-ink"
+                  type="button"
+                  data-ask
+                  data-plan="Roma Plan"
+                >
+                  Choose Roma Plan
+                </button>
+                <button
+                  class="text-link"
+                  type="button"
+                  data-details="Roma Plan"
+                >
+                  Full details
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="includes">
+            <p><strong>Every plan includes</strong></p>
+            <ul class="chips" style="margin-top: 0.7rem">
+              <li class="chip">Mobile-first design</li>
+              <li class="chip">Fast loading</li>
+              <li class="chip">Built to WCAG 2.2 AA</li>
+              <li class="chip">On-page SEO basics</li>
+            </ul>
+            <p class="muted" style="margin-top: 1rem; font-size: 0.875rem">
+              Need fixes to an existing site, or something that doesn't fit a
+              plan? Tell us what you need and we'll send a free estimate.
+            </p>
+            <button
+              class="text-link"
+              type="button"
+              data-ask
+              data-service="other"
+              data-seed="I'd like a free estimate for work that doesn't fit a plan. "
+            >
+              Request an estimate
+            </button>
+          </div>
+        </div>
+      </section>
+      <dialog id="plan-dialog" class="sheet" aria-labelledby="plan-title">
+        <div class="sheet-body">
+          <div class="row-between" style="align-items: flex-start">
+            <div>
+              <p id="plan-kicker" class="kicker"></p>
+              <h3 id="plan-title"></h3>
+            </div>
+            <button
+              id="close-plan"
+              class="icon-btn"
+              type="button"
+              aria-label="Close details"
+            >
+              ✕
+            </button>
+          </div>
+          <p id="plan-lead" style="margin-top: 0.8rem"></p>
+          <p id="plan-care" class="muted" style="margin-top: 0.6rem"></p>
+          <p style="margin-top: 1rem"><strong>Terms</strong></p>
+          <p
+            id="plan-terms"
+            class="muted"
+            style="margin-top: 0.4rem; font-size: 0.875rem"
+          ></p>
+          <button
+            id="plan-start"
+            class="btn btn-coral"
+            type="button"
+            data-ask
+            data-plan=""
+            style="margin-top: 1.2rem"
+          >
+            Contact us to get started
+          </button>
+        </div>
+      </dialog>
+      <section id="work" class="section band">
+        <div class="wrap">
+          <p class="kicker">Selected work</p>
+          <h2>Websites for local businesses, plus one design concept.</h2>
+          <article class="feature" style="margin-top: 2rem">
+            <a
+              class="shot-link"
+              href="https://jonahmobilelabs.com/"
+              target="_blank"
+              rel="noopener"
+              ><img
+                class="shot"
+                src="work/jonah.webp"
+                alt="Jonah Mobile Labs website"
+            /></a>
+            <div class="project-copy">
+              <p class="muted">jonahmobilelabs.com</p>
+              <p class="kind">Client website, Snellville, GA</p>
+              <h3>Jonah Mobile Labs</h3>
+              <p class="muted" style="margin-top: 0.7rem">
+                A full redesign for a mobile lab that brings specimen collection
+                and rapid testing to homes, workplaces, schools and events
+                across Gwinnett County and Metro Atlanta.
+              </p>
+              <p class="muted" style="margin-top: 1rem; font-size: 0.875rem">
+                Role · Full redesign and build
+              </p>
+              <a
+                class="text-link"
+                href="https://jonahmobilelabs.com/"
+                target="_blank"
+                rel="noopener"
+                >Visit Jonah Mobile Labs</a
+              >
+            </div>
+          </article>
+          <div class="cards">
+            <article class="project-card">
+              <a
+                href="https://7daysfacilityservice.com/"
+                target="_blank"
+                rel="noopener"
+                ><img
+                  class="shot"
+                  src="work/7days.webp"
+                  alt="7 Days Facility Service"
+              /></a>
+              <div class="pad">
+                <p class="muted">7daysfacilityservice.com</p>
+                <h3>7 Days Facility Service</h3>
+                <p class="kind">Client website, Charlotte, NC</p>
+                <p
+                  class="muted"
+                  style="margin-top: 0.7rem; font-size: 0.875rem"
+                >
+                  A single-page site for a hood cleaning, pressure washing and
+                  commercial cleaning company, built from their printed flyer
+                  into five clear services, each with its own quote request.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://7daysfacilityservice.com/"
+                  target="_blank"
+                  rel="noopener"
+                  >Visit the site</a
+                >
+              </div>
+            </article>
+            <article class="project-card">
+              <a
+                href="https://chibocafe.netlify.app/"
+                target="_blank"
+                rel="noopener"
+                ><img class="shot" src="work/chibo.webp" alt="Chibo"
+              /></a>
+              <div class="pad">
+                <p class="muted">chibocafe.netlify.app</p>
+                <h3>Chibo Ethiopian Coffee &amp; Kitchen</h3>
+                <p class="kind">Design concept, Concept site</p>
+                <p
+                  class="muted"
+                  style="margin-top: 0.7rem; font-size: 0.875rem"
+                >
+                  A warm, story-led site for a neighborhood café, with a tabbed
+                  menu, a section on the traditional jebena coffee ceremony, and
+                  a wall of customer reviews.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://chibocafe.netlify.app/"
+                  target="_blank"
+                  rel="noopener"
+                  >Visit the site</a
+                >
+              </div>
+            </article>
+            <article class="project-card">
+              <a
+                href="https://kostinaphoto.netlify.app/"
+                target="_blank"
+                rel="noopener"
+                ><img class="shot" src="work/kostina.webp" alt="Kostina"
+              /></a>
+              <div class="pad">
+                <p class="muted">kostinaphoto.netlify.app</p>
+                <h3>Kostina Photography</h3>
+                <p class="kind">Design concept, Concept site</p>
+                <p
+                  class="muted"
+                  style="margin-top: 0.7rem; font-size: 0.875rem"
+                >
+                  A design concept for a wedding and event photographer: a dark
+                  editorial look, a gallery filtered by event type, and an
+                  inquiry form that asks for the date and venue up front.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://kostinaphoto.netlify.app/"
+                  target="_blank"
+                  rel="noopener"
+                  >View the concept</a
+                >
+              </div>
+            </article>
+            <article class="project-card">
+              <a
+                href="https://vitablendz.netlify.app/"
+                target="_blank"
+                rel="noopener"
+                ><img class="shot" src="work/vitablendz.webp" alt="Vitablendz"
+              /></a>
+              <div class="pad">
+                <p class="muted">vitablendz.netlify.app</p>
+                <h3>Vitablendz</h3>
+                <p class="kind">Design concept, Concept site</p>
+                <p
+                  class="muted"
+                  style="margin-top: 0.7rem; font-size: 0.875rem"
+                >
+                  A bright, fresh site for a frozen yogurt and smoothie bar in
+                  central Stavanger, with opening hours, location and starting
+                  prices right on the first screen.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://vitablendz.netlify.app/"
+                  target="_blank"
+                  rel="noopener"
+                  >Visit the site</a
+                >
+              </div>
+            </article>
+            <article class="project-card">
+              <a
+                href="https://hdmona.netlify.app/"
+                target="_blank"
+                rel="noopener"
+                ><img class="shot" src="work/hdmona.webp" alt="Hdmona"
+              /></a>
+              <div class="pad">
+                <p class="muted">hdmona.netlify.app</p>
+                <h3>Hdmona Restaurant</h3>
+                <p class="kind">Design concept, Concept site</p>
+                <p
+                  class="muted"
+                  style="margin-top: 0.7rem; font-size: 0.875rem"
+                >
+                  A Norwegian-language site for an Eritrean and Ethiopian
+                  restaurant, built around a menu organized by category so
+                  guests can choose before they arrive.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://hdmona.netlify.app/"
+                  target="_blank"
+                  rel="noopener"
+                  >Visit the site</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="section">
+        <div class="wrap about-grid">
+          <div class="about-photo">
+            <img
+              src="about.webp"
+              alt="Henok T., founding owner of Asmara Web Design"
+            />
+          </div>
+          <div>
+            <p class="kicker">Who you're working with</p>
+            <h2>A small studio with two halves.</h2>
+            <p class="lede">
+              Asmara Web Design is a small studio in the Atlanta metro area with
+              two halves that feed each other: building websites small
+              businesses can actually run, and supporting the software behind
+              them once it's live.
+            </p>
+            <p style="margin-top: 1rem">
+              I'm Henok, the founding owner. I spend my working days keeping
+              production software stable, which is why this studio cares as much
+              about what happens after launch as about the launch itself.
+              Everything is built in plain HTML, CSS, and JavaScript, so any
+              developer can pick it up later.
+            </p>
+            <p
+              class="muted"
+              style="margin-top: 1.2rem; font-weight: 600; font-size: 0.875rem"
+            >
+              Henok T., Founding Owner
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section" style="padding-top: 0">
+        <div class="wrap">
+          <div class="notice">
+            <div>
+              <p class="kicker">What clients say</p>
+              <p style="margin-top: 0.3rem">
+                Reviews appear here only after a client approves the wording in
+                writing. None are published yet.
+              </p>
+            </div>
+            <a class="text-link" href="#reviews">Read the review policy</a>
+          </div>
+        </div>
+      </section>
+      <section id="reviews" class="section" style="padding-top: 0">
+        <div class="wrap" style="max-width: 48rem">
+          <h2>What clients say</h2>
+          <p class="lede">
+            Feedback from businesses and teams that have worked with Asmara Web
+            Design.
+          </p>
+          <div class="empty">
+            <h3>No published reviews yet.</h3>
+            <p>
+              We only list a review after the client approves the exact wording
+              in writing. Nothing here is invented, shortened, or anonymous.
+            </p>
+            <p>
+              Worked with us? Send a note and we'll ask your permission before
+              adding your review.
+            </p>
+            <div class="actions">
+              <a class="btn btn-coral" href="#contact">Send a note</a>
+              <a
+                class="btn btn-ghost"
+                href="https://www.linkedin.com/in/henok-t/"
+                target="_blank"
+                rel="noopener"
+                >Ask on LinkedIn</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section">
+        <div class="wrap contact-grid">
+          <div>
+            <p class="kicker">Start a project</p>
+            <h2>Tell us what's stuck, or what you want to launch.</h2>
+            <p class="muted" style="margin-top: 1rem">
+              A new site, a fix to an existing one, or help tracing a software
+              issue. We'll reply with a few questions before suggesting a plan.
+            </p>
+            <ul class="contact-list">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/henok-t/"
+                  target="_blank"
+                  rel="noopener"
+                  ><strong>LinkedIn</strong><br /><span class="muted"
+                    >Fastest way to reach us right now</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Henok-T"
+                  target="_blank"
+                  rel="noopener"
+                  ><strong>GitHub</strong><br /><span class="muted"
+                    >Public code and training projects</span
+                  ></a
+                >
+              </li>
+              <li>
+                <strong>Studio</strong><br /><span class="muted"
+                  >Metro Atlanta, GA</span
+                >
+              </li>
+            </ul>
+          </div>
+          <form id="inquiry" class="form" novalidate>
+            <p class="muted" style="font-size: 0.875rem">
+              All fields are required. We'll reply with questions before
+              suggesting a plan.
+            </p>
+            <div class="hp">
+              <label
+                >Leave this empty
+                <input name="company" tabindex="-1" autocomplete="off"
+              /></label>
+            </div>
+            <div class="fields two">
+              <label
+                >Name<input
+                  class="field"
+                  name="name"
+                  autocomplete="name" /><span
+                  class="error"
+                  data-error="name"
+                ></span
+              ></label>
+              <label
+                >Email<input
+                  class="field"
+                  name="email"
+                  type="email"
+                  autocomplete="email" /><span
+                  class="error"
+                  data-error="email"
+                ></span
+              ></label>
+            </div>
+            <div class="fields">
+              <label
+                >What do you need?
+                <select class="field" name="service">
+                  <option value="">Choose one</option>
+                  <option value="website">A new website</option>
+                  <option value="maintenance">
+                    Fixes or updates to an existing site
+                  </option>
+                  <option value="support">
+                    Technical support or troubleshooting
+                  </option>
+                  <option value="pwa">An installable web app</option>
+                  <option value="optimization">
+                    Speed, accessibility, or SEO cleanup
+                  </option>
+                  <option value="other">Something else</option>
+                </select>
+                <span class="error" data-error="service"></span>
+              </label>
+              <label
+                >Message<textarea
+                  class="field"
+                  name="message"
+                  rows="5"
+                  placeholder="What's happening now, and what would done look like?"
+                ></textarea
+                ><span class="error" data-error="message"></span
+              ></label>
+            </div>
+            <div class="actions">
+              <button class="btn btn-coral" type="submit">
+                Prepare message
+              </button>
+              <p class="muted" style="font-size: 0.875rem">
+                Online sending isn't connected yet, so this prepares your note.
+              </p>
+            </div>
+            <p
+              id="form-status"
+              style="margin-top: 1rem; font-size: 0.875rem; font-weight: 500"
+            ></p>
+            <div id="ready" class="ready" hidden>
+              <p><strong>Ready to send</strong></p>
+              <p class="muted" style="font-size: 0.875rem">
+                Copy the note, open it in your email app, or message us on
+                LinkedIn.
+              </p>
+              <pre id="note"></pre>
+              <div class="actions">
+                <button id="copy-note" class="btn btn-ink" type="button">
+                  Copy note
+                </button>
+                <a
+                  id="mail-note"
+                  class="btn btn-ghost"
+                  href="mailto:?subject=Project%20note%20for%20Asmara%20Web%20Design"
+                  >Open in email</a
+                >
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div>
+          <img src="logo.webp" alt="" />
+          <p class="word">ASMARA</p>
+          <p class="web">web design</p>
+          <p style="margin-top: 0.7rem; max-width: 16rem">
+            Websites for small businesses in Metro Atlanta, built and kept
+            running.
+          </p>
+        </div>
+        <div>
+          <h2>Navigate</h2>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            <li><a href="#services">Website development</a></li>
+            <li><a href="#services">Website maintenance</a></li>
+            <li><a href="#services">Technical support</a></li>
+            <li><a href="#services">Installable web apps</a></li>
+            <li><a href="#services">Speed and SEO cleanup</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Let's talk</h2>
+          <p>Tell us what's stuck, or what you want to launch.</p>
+          <ul>
+            <li><a href="#contact">Start a project</a></li>
+            <li>
+              <a href="https://www.linkedin.com/in/henok-t/"
+                >Message us on LinkedIn</a
+              >
+            </li>
+            <li><a href="https://github.com/Henok-T">GitHub</a></li>
+          </ul>
+        </div>
       </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <img src="logo.png" alt="" />
-        <p class="word">ASMARA</p>
-        <p class="web">web design</p>
-        <p style="margin-top:.7rem;max-width:16rem">Websites for small businesses in Metro Atlanta, built and kept running.</p>
+      <div class="wrap legal">
+        <p>
+          © <span id="year"></span> Asmara Web Design. Web development and
+          technical support in Metro Atlanta, GA.
+        </p>
+        <a href="#main">Back to top</a>
       </div>
-      <div><h2>Navigate</h2><ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#about">About</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
-      <div><h2>Services</h2><ul><li><a href="#services">Website development</a></li><li><a href="#services">Website maintenance</a></li><li><a href="#services">Technical support</a></li><li><a href="#services">Installable web apps</a></li><li><a href="#services">Speed and SEO cleanup</a></li></ul></div>
-      <div><h2>Let's talk</h2><p>Tell us what's stuck, or what you want to launch.</p><ul><li><a href="#contact">Start a project</a></li><li><a href="https://www.linkedin.com/in/henok-t/">Message us on LinkedIn</a></li><li><a href="https://github.com/Henok-T">GitHub</a></li></ul></div>
-    </div>
-    <div class="wrap legal">
-      <p>© <span id="year"></span> Asmara Web Design. Web development and technical support in Metro Atlanta, GA.</p>
-      <a href="#main">Back to top</a>
-    </div>
-  </footer>
-  <script src="app.js"></script>
-</body>
+    </footer>
+    <script src="app.js"></script>
+  </body>
 </html>
