@@ -31,15 +31,14 @@ const labels = {
 };
 const form = document.querySelector("#inquiry");
 const statusEl = document.querySelector("#form-status");
-const readyEl = document.querySelector("#ready");
-const noteEl = document.querySelector("#note");
-const copyBtn = document.querySelector("#copy-note");
-const mailLink = document.querySelector("#mail-note");
 let planName = "";
+let submitted = false;
 function field(name) { return form.elements.namedItem(name); }
 function showError(name, message) {
   const slot = document.querySelector(`[data-error="${name}"]`);
+  const el = field(name);
   if (slot) slot.textContent = message || "";
+  if (el) el.setAttribute("aria-invalid", message ? "true" : "false");
 }
 function saveDraft() {
   const data = { name: field("name").value, email: field("email").value, service: field("service").value, message: field("message").value };
@@ -55,12 +54,6 @@ function loadDraft() {
     field("message").value = saved.message || "";
   } catch {}
 }
-function compose() {
-  const lines = [`Name: ${field("name").value.trim()}`, `Email: ${field("email").value.trim()}`, `Need: ${labels[field("service").value] || field("service").value}`];
-  if (planName) lines.push(`Plan: ${planName}`);
-  lines.push("", field("message").value.trim());
-  return lines.join("\n");
-}
 function validate() {
   const errors = {};
   if (field("name").value.trim().length < 2) errors.name = "Tell us your name.";
@@ -72,7 +65,6 @@ function validate() {
 function ask(service, seed) {
   if (service) field("service").value = service;
   if (seed.trim() && !field("message").value.trim()) field("message").value = seed;
-  readyEl.hidden = true;
   statusEl.textContent = "";
   saveDraft();
   document.querySelector("#contact").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -122,22 +114,57 @@ document.querySelectorAll(".filter").forEach((button) => {
   });
 });
 loadDraft();
-form.addEventListener("input", () => { ["name","email","service","message"].forEach((n) => showError(n, "")); saveDraft(); });
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const errors = validate();
-  ["name","email","service","message"].forEach((n) => showError(n, errors[n] || ""));
-  if (Object.keys(errors).length) { statusEl.textContent = "Check the highlighted fields."; readyEl.hidden = true; return; }
-  if (field("company").value.trim()) { noteEl.textContent = "Thanks. We'll take a look."; readyEl.hidden = false; return; }
-  const note = compose();
-  noteEl.textContent = note;
-  readyEl.hidden = false;
-  copyBtn.textContent = "Copy note";
-  statusEl.textContent = "Your note is ready to send. Nothing was emailed automatically.";
-  mailLink.href = `mailto:?subject=${encodeURIComponent("Project note for Asmara Web Design")}&body=${encodeURIComponent(note)}`;
+["name", "email", "service", "message"].forEach((n) => {
+  field(n)?.addEventListener("blur", () => {
+    const errors = validate();
+    showError(n, errors[n] || "");
+  });
 });
-copyBtn.addEventListener("click", async () => {
-  try { await navigator.clipboard.writeText(noteEl.textContent); copyBtn.textContent = "Copied"; }
-  catch { statusEl.textContent = "Select the note and copy it manually."; }
+form.addEventListener("input", () => {
+  saveDraft();
+  if (!submitted) return;
+  const errors = validate();
+  ["name", "email", "service", "message"].forEach((n) => showError(n, errors[n] || ""));
+});
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  submitted = true;
+  const errors = validate();
+  ["name", "email", "service", "message"].forEach((n) => showError(n, errors[n] || ""));
+  if (Object.keys(errors).length) {
+    statusEl.textContent = "Check the highlighted fields.";
+    field(["name", "email", "service", "message"].find((n) => errors[n]))?.focus();
+    return;
+  }
+  if (field("company").value.trim()) return;
+  const submitBtn = form.querySelector('[type="submit"]');
+  submitBtn.textContent = "Sending…";
+  submitBtn.disabled = true;
+  statusEl.textContent = "";
+  const email = field("email").value.trim();
+  const params = new URLSearchParams({ "form-name": "inquiry", name: field("name").value.trim(), email, service: field("service").value, message: field("message").value.trim(), company: field("company").value });
+  if (planName) params.set("plan", planName);
+  try {
+    const res = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: params.toString() });
+    if (!res.ok) throw new Error(res.status);
+    form.reset();
+    ["name", "email", "service", "message"].forEach((n) => showError(n, ""));
+    planName = "";
+    submitted = false;
+    localStorage.removeItem("asmara-inquiry-draft");
+    statusEl.textContent = `Message sent. We’ll reply to ${email}.`;
+  } catch {
+    statusEl.replaceChildren();
+    statusEl.append("Your message didn’t send. Check your connection and try again, or ");
+    const link = document.createElement("a");
+    link.href = "https://www.linkedin.com/in/henok-t/";
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = "message us on LinkedIn";
+    statusEl.append(link, ".");
+  } finally {
+    submitBtn.textContent = "Send message";
+    submitBtn.disabled = false;
+  }
 });
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));

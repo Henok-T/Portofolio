@@ -895,7 +895,8 @@
               </li>
             </ul>
           </div>
-          <form id="inquiry" class="form" novalidate>
+          <form id="inquiry" class="form" name="inquiry" method="POST" data-netlify="true" netlify-honeypot="company" novalidate>
+            <input type="hidden" name="form-name" value="inquiry" />
             <p class="muted" style="font-size: 0.875rem">
               All fields are required. We'll reply with questions before
               suggesting a plan.
@@ -911,9 +912,12 @@
                 >Name<input
                   class="field"
                   name="name"
-                  autocomplete="name" /><span
+                  autocomplete="name"
+                  aria-describedby="err-name" /><span
+                  id="err-name"
                   class="error"
                   data-error="name"
+                  aria-live="polite"
                 ></span
               ></label>
               <label
@@ -921,16 +925,19 @@
                   class="field"
                   name="email"
                   type="email"
-                  autocomplete="email" /><span
+                  autocomplete="email"
+                  aria-describedby="err-email" /><span
+                  id="err-email"
                   class="error"
                   data-error="email"
+                  aria-live="polite"
                 ></span
               ></label>
             </div>
             <div class="fields">
               <label
                 >What do you need?
-                <select class="field" name="service">
+                <select class="field" name="service" aria-describedby="err-service">
                   <option value="">Choose one</option>
                   <option value="website">A new website</option>
                   <option value="maintenance">
@@ -945,7 +952,7 @@
                   </option>
                   <option value="other">Something else</option>
                 </select>
-                <span class="error" data-error="service"></span>
+                <span id="err-service" class="error" data-error="service" aria-live="polite"></span>
               </label>
               <label
                 >Message<textarea
@@ -953,41 +960,21 @@
                   name="message"
                   rows="5"
                   placeholder="What's happening now, and what would done look like?"
+                  aria-describedby="err-message"
                 ></textarea
-                ><span class="error" data-error="message"></span
+                ><span id="err-message" class="error" data-error="message" aria-live="polite"></span
               ></label>
             </div>
             <div class="actions">
               <button class="btn btn-coral" type="submit">
-                Prepare message
+                Send message
               </button>
-              <p class="muted" style="font-size: 0.875rem">
-                Online sending isn't connected yet, so this prepares your note.
-              </p>
             </div>
             <p
               id="form-status"
               style="margin-top: 1rem; font-size: 0.875rem; font-weight: 500"
+              aria-live="polite"
             ></p>
-            <div id="ready" class="ready" hidden>
-              <p><strong>Ready to send</strong></p>
-              <p class="muted" style="font-size: 0.875rem">
-                Copy the note, open it in your email app, or message us on
-                LinkedIn.
-              </p>
-              <pre id="note"></pre>
-              <div class="actions">
-                <button id="copy-note" class="btn btn-ink" type="button">
-                  Copy note
-                </button>
-                <a
-                  id="mail-note"
-                  class="btn btn-ghost"
-                  href="mailto:?subject=Project%20note%20for%20Asmara%20Web%20Design"
-                  >Open in email</a
-                >
-              </div>
-            </div>
           </form>
         </div>
       </section>
