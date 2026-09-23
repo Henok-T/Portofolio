@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Asmara Web Design — Websites and technical support",
+      "hasCanvas": false,
+      "bodyTextLen": 8286,
+      "bodyTextHash": "dff727313db0c2224ac7fcf80d91db3525ba9a202386e44602566ee0a804c780",
+      "bodyTextPrefix": "Skip to content Asmara Web Design Services Work Pricing About Pr",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Asmara Web Design — Websites and technical support",
+      "hasCanvas": false,
+      "bodyTextLen": 8233,
+      "bodyTextHash": "845e1413a048b3662c68ae54a6a3583ddb93102ef26cf7e0de023ac5f93890c9",
+      "bodyTextPrefix": "Skip to content Asmara Web Design Metro Atlanta, GA · Taking on ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

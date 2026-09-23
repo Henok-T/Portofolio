@@ -1,22 +1,17 @@
 {
-  "name": "Henok T. — Web & Technical Support",
-  "short_name": "Henok T.",
-  "description": "Web development, software, and technical support.",
-  "start_url": "./index.html",
-  "scope": "./",
+  "name": "Asmara Web Design — Web Development & Technical Support",
+  "short_name": "Asmara",
+  "description": "Websites, web apps, and technical support from Metro Atlanta.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "id": "/",
   "display": "standalone",
-  "background_color": "#f3f5f7",
-  "theme_color": "#0e6e6a",
+  "background_color": "#FFFFFF",
+  "theme_color": "#062545",
+  "lang": "en",
   "icons": [
-    {
-      "src": "assets/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

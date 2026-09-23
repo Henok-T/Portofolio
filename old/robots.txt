@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /_templates/
 
-Sitemap: https://henok.netlify.app/sitemap.xml
+Sitemap: https://asmaraweb.netlify.app/sitemap.xml

@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-brand: "Audiowide", ui-sans-serif, sans-serif;
+
+  --color-bg: #f3f6f4;
+  --color-surface: #ffffff;
+  --color-ink: #16352e;
+  --color-muted: #3f5c54;
+  --color-line: #d5e3dc;
+  --color-coral: #c43222;
+  --color-lagoon: #0a6b64;
+
+  --shadow-card: 0 18px 40px -28px rgb(22 53 46 / 0.55);
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-lagoon);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-lagoon) 28%, white);
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+.field {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg);
+  padding: 0.7rem 0.95rem;
+  font-size: 1rem;
+  color: var(--color-ink);
+}
+
+textarea.field {
+  min-height: 8.5rem;
+  line-height: 1.5;
+}
+
+.field:focus {
+  border-color: var(--color-lagoon);
+  outline: 2px solid var(--color-lagoon);
+  outline-offset: 2px;
+}
+
+.shot {
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+  width: 100%;
+}
+
+.steps {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .steps::before {
+    content: "";
+    position: absolute;
+    top: 1.35rem;
+    left: 2%;
+    right: 2%;
+    height: 2px;
+    background: var(--color-line);
+  }
+}
+
+dialog.sheet {
+  width: min(36rem, calc(100% - 2rem));
+  max-height: min(85dvh, 42rem);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-card);
+}
+
+dialog.sheet::backdrop {
+  background: rgb(22 53 46 / 0.46);
+}
+
+dialog.menu {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+dialog.menu::backdrop {
+  background: transparent;
+}
+
+.rise {
+  animation: rise 560ms ease-out both;
+}
+
+.rise-2 {
+  animation-delay: 90ms;
+}
+
+.rise-3 {
+  animation-delay: 170ms;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
