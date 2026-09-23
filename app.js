@@ -140,7 +140,4 @@ copyBtn.addEventListener("click", async () => {
   try { await navigator.clipboard.writeText(noteEl.textContent); copyBtn.textContent = "Copied"; }
   catch { statusEl.textContent = "Select the note and copy it manually."; }
 });
-const path = location.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "") || "/";
-const jump = { "/projects": "projects", "/reviews": "reviews", "/contact": "contact" }[path];
-if (jump) document.getElementById(jump)?.scrollIntoView();
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
