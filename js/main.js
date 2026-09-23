@@ -93,9 +93,28 @@ function initHeaderState() {
     );
   }
 
+  const mobileBreak = window.matchMedia('(max-width: 859.98px)');
+  let prevY = window.scrollY;
   let ticking = false;
+
   const update = () => {
-    header.classList.toggle('is-scrolled', window.scrollY > 8);
+    const y = window.scrollY;
+    const delta = y - prevY;
+
+    header.classList.toggle('is-scrolled', y > 8);
+
+    if (Math.abs(delta) >= 8) {
+      prevY = y;
+      if (mobileBreak.matches) {
+        header.classList.toggle('is-compact', delta < 0 && y > 80);
+      }
+    }
+
+    // Near top always removes compact regardless of delta size
+    if (y <= 80) {
+      header.classList.remove('is-compact');
+    }
+
     syncHeight();
     ticking = false;
   };
@@ -108,6 +127,14 @@ function initHeaderState() {
   }, { passive: true });
 
   window.addEventListener('resize', syncHeight, { passive: true });
+
+  // Remove is-compact when crossing to desktop
+  mobileBreak.addEventListener('change', () => {
+    if (!mobileBreak.matches) {
+      header.classList.remove('is-compact');
+      syncHeight();
+    }
+  });
 
   update();
 }

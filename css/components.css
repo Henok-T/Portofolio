@@ -69,28 +69,21 @@
   opacity: 0.85;
 }
 
-/* Full logo image: sized by height so it scales proportionally */
+/* Full logo image: width-driven so header and footer logos both use --logo-w */
 .brand img {
   display: block;
-  width: auto;
-  height: clamp(80px, 9vw, 112px);
-  transition: height var(--dur-base) var(--ease-out);
+  height: auto;
+  width: var(--logo-w);
+  transition: width 0.3s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .brand img { transition: none; }
 }
 
-.is-scrolled .brand img {
-  height: 72px;
-}
-
 @media (max-width: 859.98px) {
-  .brand img {
-    height: clamp(72px, 16vw, 88px);
-  }
-  .is-scrolled .brand img {
-    height: 60px;
+  .is-compact .brand img {
+    width: clamp(104px, 23vw, 127px);
   }
 }
 
@@ -595,7 +588,7 @@
 
 /* Brand column */
 .footer-logo {
-  width: min(180px, 60%);
+  width: min(var(--logo-w), 60%);
   height: auto;
   margin-bottom: var(--space-4);
 }
