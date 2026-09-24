@@ -10,6 +10,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.55; }
 img { max-width: 100%; height: auto; display: block; }
+picture { display: block; }
 a { color: inherit; }
 button { cursor: pointer; font: inherit; }
 h1,h2,h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; margin: 0; text-wrap: balance; }
