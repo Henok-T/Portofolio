@@ -10,6 +10,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.55; }
 img { max-width: 100%; display: block; }
+img:not([class]) { height: auto; }
 a { color: inherit; }
 button { cursor: pointer; font: inherit; }
 h1,h2,h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; margin: 0; text-wrap: balance; }
@@ -90,7 +91,7 @@ h1 em { color: var(--lagoon); font-style: italic; }
 .sheet::backdrop { background: rgb(22 53 46 / .46); }
 .sheet-body { padding: 1.5rem; max-height: 85dvh; overflow: auto; }
 .sheet h3 { margin-top: .25rem; font-family: var(--brand); font-size: 1.7rem; font-weight: 400; }
-.shot { width: 100%; aspect-ratio: 8/5; object-fit: cover; }
+.shot { display: block; width: 100%; aspect-ratio: 8/5; object-fit: cover; }
 .shot-link { display: block; overflow: hidden; border-radius: 1.5rem; border: 1px solid var(--line); }
 .project-copy h3 { margin-top: .6rem; font-size: clamp(1.8rem, 4vw, 2.4rem); }
 .kind { margin-top: .2rem; color: var(--lagoon); font-size: .875rem; }
