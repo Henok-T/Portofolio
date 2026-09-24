@@ -110,10 +110,192 @@
   .chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .7rem; }
   .chip { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: .25rem .75rem; font-size: .875rem; }
   .band { background: #fff; }
-  .steps { display: grid; gap: 1.6rem; margin-top: 2.4rem; }
-  .step-no { display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 999px; background: var(--coral); color: #fff; font-family: var(--display); font-size: 1.1rem; }
-  .steps h3 { margin-top: .8rem; font-size: 1.4rem; }
-  .steps p { margin-top: .4rem; font-size: .875rem; color: var(--muted); }
+
+  /* ── Steps (connected timeline) ──────────────────────────────────────────
+     Mobile  (<700px): vertical timeline; number + title on one row,
+     description indented to align under the title text. A vertical connector
+     line runs from each marker to the next.
+     Desktop (≥700px): four equal columns with a horizontal connector behind
+     the markers.
+     Scroll-driven animation lives in @supports + prefers-reduced-motion so
+     Firefox and older browsers see a fully-drawn, static fallback.           */
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 2.4rem 0 0;
+  }
+
+  .step {
+    position: relative;
+    padding-bottom: 2rem;
+    container: step / inline-size;
+  }
+  .step:last-child { padding-bottom: 0; }
+
+  .step-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Default: cream fill, 2px ink ring, ink number */
+  .step-no {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .step h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.15;
+  }
+
+  /* Description sits below the row, indented past the marker */
+  .step-desc {
+    margin-top: 0.5rem;
+    padding-left: calc(2rem + 0.75rem);
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  /* Mobile vertical connector (decorative ::after, not interactive) */
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(1rem - 1px);
+    top: 2rem;
+    bottom: 0;
+    width: 2px;
+    background: var(--line);
+    transform-origin: top center;
+  }
+
+  /* Hover / focus-within: coral marker */
+  .step:hover .step-no,
+  .step:focus-within .step-no {
+    background: var(--coral);
+    color: var(--surface);
+    border-color: var(--coral);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .step { transition: transform 0.15s ease; }
+    .step:hover,
+    .step:focus-within { transform: translateY(-2px); }
+  }
+
+  /* Desktop (≥700px): horizontal timeline */
+  @media (min-width: 700px) {
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+
+    /* Horizontal connector behind all four markers */
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 1.25rem;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--line);
+      z-index: 0;
+      transform-origin: left center;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 0;
+    }
+
+    .step:not(:last-child)::after { display: none; }
+
+    .step-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+    .step h3 { font-size: 1.3rem; }
+    .step-no { width: 2.5rem; height: 2.5rem; font-size: 1rem; }
+    .step-desc { padding-left: 0; margin-top: 0.65rem; }
+  }
+
+  /* Container query: slightly larger title at wider column widths */
+  @container step (min-width: 180px) {
+    .step h3 { font-size: 1.35rem; }
+  }
+
+  /* ── Scroll-driven animation (progressive enhancement) ───────────────────
+     @supports guard ensures Firefox (flag-gated) and older browsers keep the
+     fully-drawn static fallback. animation-fill-mode: both holds each marker
+     in its reached (coral) state after the section has scrolled through.     */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes steps-draw-h {
+        from { transform: scaleX(0); }
+        to   { transform: scaleX(1); }
+      }
+      @keyframes steps-draw-v {
+        from { transform: scaleY(0); }
+        to   { transform: scaleY(1); }
+      }
+      @keyframes step-reach {
+        to {
+          background: var(--coral);
+          color: var(--surface);
+          border-color: var(--coral);
+        }
+      }
+
+      .steps {
+        view-timeline-name: --steps-tl;
+        view-timeline-axis: block;
+      }
+
+      @media (min-width: 700px) {
+        .steps::before {
+          animation: steps-draw-h linear both;
+          animation-timeline: --steps-tl;
+          animation-range: entry 10% cover 55%;
+        }
+      }
+
+      @media (max-width: 699px) {
+        .step:not(:last-child)::after {
+          animation: steps-draw-v linear both;
+          animation-timeline: view();
+          animation-range: entry 0% cover 30%;
+        }
+      }
+
+      .step-no {
+        animation: step-reach linear both;
+        animation-timeline: --steps-tl;
+      }
+      .step:nth-child(1) .step-no { animation-range: entry  8% cover 22%; }
+      .step:nth-child(2) .step-no { animation-range: entry 22% cover 36%; }
+      .step:nth-child(3) .step-no { animation-range: entry 36% cover 50%; }
+      .step:nth-child(4) .step-no { animation-range: entry 50% cover 60%; }
+    }
+  }
+
   .plans { display: grid; gap: 1rem; margin-top: 2rem; }
   .plan { display: flex; flex-direction: column; border: 1px solid var(--line); background: #fff; border-radius: 1.5rem; padding: 1.4rem; }
   .plan.recommended { background: var(--ink); color: var(--bg); border-color: var(--ink); }
@@ -172,7 +354,6 @@
     .nav { display: flex; }
     .menu-btn { display: none; }
     .cards { grid-template-columns: 1fr 1fr; }
-    .steps { grid-template-columns: repeat(4,1fr); }
     .footer-grid { grid-template-columns: 1.2fr 1fr 1fr 1fr; }
     .wrap { width: min(var(--wrap), calc(100% - 4rem)); }
   }
