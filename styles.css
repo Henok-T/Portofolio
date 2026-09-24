@@ -218,4 +218,153 @@
       }
     }
   }
+
+  /* ── 4. Services bento grid ────────────────────────────────────────────────
+     Section header is full-width, left-aligned, capped at ~50ch.
+     The grid is 1-col mobile → 2-col tablet (primaries span both) →
+     6-col desktop (primaries span 3, secondaries span 2).
+     Container queries on each <li> adjust internal padding and title size
+     because the two card widths differ.                                     */
+  .services-header { max-width: 50ch; }
+  .services-header h2 { max-width: none; }
+
+  .bento {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .bento > li {
+    display: flex;
+    container: bento-card / inline-size;
+  }
+
+  .bento-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    text-decoration: none;
+    width: 100%;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+
+  .bento-card--primary {
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+  }
+
+  .bento-card--secondary {
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--coral);
+  }
+
+  .bento-card h3 {
+    font-size: 1.3rem;
+    color: inherit;
+  }
+
+  .bento-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    flex: 1;
+    margin: 0;
+  }
+
+  .bento-card--primary .bento-desc {
+    color: color-mix(in srgb, var(--bg) 72%, transparent);
+  }
+
+  .bento-card--secondary .bento-desc { color: var(--muted); }
+
+  /* Hover and focus lift */
+  .bento-card:hover,
+  .bento-card:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .bento-card--primary:hover,
+  .bento-card--primary:focus-visible {
+    box-shadow: 0 10px 32px -10px rgb(0 0 0 / .4);
+    border-color: color-mix(in srgb, var(--bg) 18%, var(--ink));
+  }
+
+  .bento-card--secondary:hover,
+  .bento-card--secondary:focus-visible {
+    border-color: var(--lagoon);
+    border-top-color: var(--coral);
+    box-shadow: 0 10px 32px -10px rgb(22 53 46 / .16);
+  }
+
+  /* Focus ring on the whole card */
+  .bento-card:focus-visible {
+    outline: 2px solid var(--lagoon);
+    outline-offset: 3px;
+  }
+
+  /* Capabilities: hidden by default, revealed on hover/focus via grid row trick.
+     Text remains in the DOM at all times for assistive technology.           */
+  .bento-caps {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+  }
+
+  .bento-caps-inner {
+    min-height: 0;
+    overflow: hidden;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding-top: 0.55rem;
+  }
+
+  .bento-card--primary .bento-caps-inner {
+    color: color-mix(in srgb, var(--bg) 60%, transparent);
+  }
+
+  .bento-card--secondary .bento-caps-inner { color: var(--muted); }
+
+  .bento-card:hover .bento-caps,
+  .bento-card:focus .bento-caps {
+    grid-template-rows: 1fr;
+  }
+
+  /* Touch devices: always show capabilities */
+  @media (pointer: coarse) {
+    .bento-caps { grid-template-rows: 1fr; }
+  }
+
+  /* Reduced motion: instant state change, no transition */
+  @media (prefers-reduced-motion: reduce) {
+    .bento-card { transition: none; }
+    .bento-caps { transition: none; }
+  }
+
+  /* Tablet: 2 columns; first two cards (primaries) span both */
+  @media (min-width: 600px) {
+    .bento { grid-template-columns: 1fr 1fr; }
+    .bento > li:nth-child(-n+2) { grid-column: span 2; }
+  }
+
+  /* Desktop: 6-column asymmetric bento */
+  @media (min-width: 900px) {
+    .bento { grid-template-columns: repeat(6, 1fr); }
+    .bento > li:nth-child(-n+2) { grid-column: span 3; }
+    .bento > li:nth-child(n+3) { grid-column: span 2; }
+  }
+
+  /* Container queries: adjust padding and title size based on card width */
+  @container bento-card (min-width: 300px) {
+    .bento-card { padding: 1.5rem; }
+    .bento-card h3 { font-size: 1.45rem; }
+  }
+
+  @container bento-card (min-width: 420px) {
+    .bento-card--primary { padding: 1.9rem; }
+    .bento-card--primary h3 { font-size: 1.75rem; }
+  }
 }
