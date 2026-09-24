@@ -1,4 +1,4 @@
-const VERSION = "v12";
+const VERSION = "v13";
 
 const STATIC_CACHE = `static-${VERSION}`;
 const PAGES_CACHE  = `pages-${VERSION}`;
@@ -15,6 +15,10 @@ const SHELL = [
   "/logo-header.webp",
   "/logo-dark-header.webp",
   "/manifest.webmanifest",
+  "/fonts/outfit-latin.woff2",
+  "/fonts/fraunces-roman-latin.woff2",
+  "/fonts/fraunces-italic-latin.woff2",
+  "/fonts/audiowide-latin.woff2",
 ];
 
 // ── Install: precache shell ──────────────────────────────────────────────────
@@ -50,12 +54,8 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
 
-  // Leave cross-origin requests alone unless they are Google Fonts
-  const isGoogleFonts =
-    url.hostname === "fonts.googleapis.com" ||
-    url.hostname === "fonts.gstatic.com";
-
-  if (url.origin !== self.location.origin && !isGoogleFonts) return;
+  // Leave cross-origin requests alone
+  if (url.origin !== self.location.origin) return;
 
   // ── Navigations: network-first, fall back to cached page then offline.html
   if (request.mode === "navigate") {
@@ -93,11 +93,10 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // ── Images, fonts, and Google Fonts: cache-first
+  // ── Images and fonts: cache-first
   if (
     request.destination === "image" ||
-    request.destination === "font" ||
-    isGoogleFonts
+    request.destination === "font"
   ) {
     event.respondWith(
       caches.open(ASSETS_CACHE).then((cache) =>
