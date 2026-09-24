@@ -106,7 +106,7 @@
   .project-copy h3 { margin-top: .6rem; font-size: clamp(1.8rem, 4vw, 2.4rem); }
   .kind { margin-top: .2rem; color: var(--lagoon); font-size: .875rem; }
   .cards { display: grid; gap: 1.2rem; margin-top: 1.8rem; }
-  .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem; background: var(--bg); }
+  .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem; background: var(--bg); container: card / inline-size; }
   .pad { padding: 1.2rem; }
   .about-photo { position: relative; max-width: 28rem; }
   .about-photo::before { content: ""; position: absolute; inset: 1.4rem 0 -.7rem .7rem; background: color-mix(in srgb, var(--lagoon) 15%, transparent); border-radius: 1.5rem; }
@@ -148,5 +148,41 @@
     .split { grid-template-columns: 4fr 8fr; }
     .feature, .about-grid, .contact-grid { grid-template-columns: 1fr 1fr; align-items: center; }
     .plans { grid-template-columns: repeat(3,1fr); }
+  }
+
+  /* ── 1. Container queries: work card internals ─────────────────────────────
+     Breakpoint 400px: at this width a card has enough horizontal room (wide
+     phone in portrait, or either column in the 768px+ two-up grid) for the
+     more generous 1.4rem padding. Below 400px (narrow phones, or any future
+     three-column grid) the compact 1.2rem default is kept.                  */
+  @container card (min-width: 400px) {
+    .pad { padding: 1.4rem; }
+  }
+
+  /* ── 2. Auto-growing textarea ──────────────────────────────────────────────
+     field-sizing: content is Baseline June 2026; older browsers keep the
+     fixed min-height already set on textarea.field.                         */
+  @supports (field-sizing: content) {
+    #inquiry textarea { field-sizing: content; min-height: 8rem; max-height: 22rem; }
+  }
+
+  /* ── 3. Scroll-driven section reveals ─────────────────────────────────────
+     Sections are fully visible by default; the animation only applies where
+     both the API and the motion preference are supported. The hero uses class
+     .hero (not .section) so it is never targeted.                           */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes section-reveal {
+        from { opacity: 0.001; transform: translateY(12px); }
+        to   { opacity: 1;     transform: none; }
+      }
+      .section {
+        animation-name: section-reveal;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+      }
+    }
   }
 }
