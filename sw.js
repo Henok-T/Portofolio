@@ -1,4 +1,4 @@
-const VERSION = "v13";
+const VERSION = "v14";
 
 const STATIC_CACHE = `static-${VERSION}`;
 const PAGES_CACHE  = `pages-${VERSION}`;
@@ -9,6 +9,7 @@ const CURRENT_CACHES = [STATIC_CACHE, PAGES_CACHE, ASSETS_CACHE];
 const SHELL = [
   "/",
   "/index.html",
+  "/privacy.html",
   "/styles.css",
   "/app.js",
   "/offline.html",
