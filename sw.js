@@ -1,4 +1,4 @@
-const CACHE = "asmara-site-v3";
+const CACHE = "asmara-site-v4";
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(["./", "./index.html", "./styles.css", "./app.js", "./logo.png"])).then(() => self.skipWaiting()));
 });

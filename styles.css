@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Outfit:wght@400;500;600&display=swap");
 :root {
   --bg: #f3f6f4; --surface: #fff; --ink: #16352e; --muted: #3f5c54;
   --line: #d5e3dc; --coral: #c43222; --lagoon: #0a6b64;
   --sans: Outfit, ui-sans-serif, system-ui, sans-serif;
   --display: Fraunces, Georgia, serif;
-  --brand: Audiowide, sans-serif;
+  --brand: Audiowide, ui-sans-serif, system-ui, sans-serif;
   --wrap: 72rem;
 }
 * { box-sizing: border-box; }
@@ -98,16 +97,9 @@ h1 em { color: var(--lagoon); font-style: italic; }
 .cards { display: grid; gap: 1.2rem; margin-top: 1.8rem; }
 .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem; background: var(--bg); }
 .pad { padding: 1.2rem; }
-.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
-.filter { min-height: 2.75rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; padding: 0 1rem; font-weight: 600; font-size: .875rem; }
-.filter[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
-.filter span { margin-left: .4rem; color: var(--muted); }
-.filter[aria-pressed="true"] span { color: color-mix(in srgb, var(--bg) 70%, transparent); }
-.filter-card[hidden] { display: none; }
 .about-photo { position: relative; max-width: 28rem; }
 .about-photo::before { content: ""; position: absolute; inset: 1.4rem 0 -.7rem .7rem; background: color-mix(in srgb, var(--lagoon) 15%, transparent); border-radius: 1.5rem; }
 .about-photo img { position: relative; border-radius: 1.5rem; border: 1px solid var(--line); }
-.notice { display: flex; flex-direction: column; gap: 1rem; border-radius: 1.5rem; background: color-mix(in srgb, var(--lagoon) 10%, transparent); padding: 1.4rem; }
 .empty { margin-top: 2rem; border: 1px dashed var(--line); background: #fff; border-radius: 1.5rem; padding: 1.4rem; }
 .empty p { margin-top: .7rem; color: var(--muted); }
 .contact-list a, .contact-list li { display: block; text-decoration: none; margin-top: 1rem; font-size: .875rem; }
@@ -118,9 +110,6 @@ label { display: block; font-size: .875rem; font-weight: 600; }
 textarea.field { min-height: 8rem; }
 .error { color: var(--coral); font-size: .875rem; }
 .hp { position: absolute; left: -9999px; }
-.ready { margin-top: 1rem; background: color-mix(in srgb, var(--lagoon) 10%, transparent); border-radius: 1rem; padding: 1rem; }
-.ready pre { white-space: pre-wrap; background: #fff; padding: .75rem; border-radius: .75rem; font-size: .875rem; }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 .footer { background: var(--ink); color: var(--bg); }
 .footer-grid { display: grid; gap: 2rem; padding: 3rem 0; }
 .footer img { height: 3rem; width: auto; }
@@ -134,7 +123,7 @@ textarea.field { min-height: 8rem; }
 @media (min-width: 640px) {
   .desktop-only { display: inline-flex; }
   .fields.two { grid-template-columns: 1fr 1fr; }
-  .notice, .legal { flex-direction: row; align-items: center; justify-content: space-between; }
+  .legal { flex-direction: row; align-items: center; justify-content: space-between; }
 }
 @media (min-width: 768px) {
   .nav { display: flex; }

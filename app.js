@@ -105,14 +105,6 @@ document.querySelectorAll("[data-details]").forEach((button) => {
 });
 document.querySelector("#close-plan").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
-const cards = [...document.querySelectorAll(".filter-card")];
-document.querySelectorAll(".filter").forEach((button) => {
-  button.addEventListener("click", () => {
-    const chosen = button.getAttribute("data-filter");
-    document.querySelectorAll(".filter").forEach((item) => item.setAttribute("aria-pressed", item === button ? "true" : "false"));
-    cards.forEach((card) => { card.hidden = chosen !== "All" && card.getAttribute("data-industry") !== chosen; });
-  });
-});
 loadDraft();
 ["name", "email", "service", "message"].forEach((n) => {
   field(n)?.addEventListener("blur", () => {
