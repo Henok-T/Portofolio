@@ -1,0 +1,177 @@
+name: Checks
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  # ─── Job 1: HTML Validation ───────────────────────────────────────────────
+  html-validate:
+    name: HTML Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate HTML
+        run: npx --yes html-validate index.html offline.html
+
+  # ─── Job 2: Link Check ────────────────────────────────────────────────────
+  link-check:
+    name: Link Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Internal links and #fragments — FAILS the build on broken links.
+      # Exclude all absolute http(s) URLs so only relative paths and anchors
+      # are checked here; those are the ones our own edits can break.
+      - name: Check internal and fragment links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --exclude "https?://"
+            --no-progress
+            --format markdown
+            index.html offline.html
+          output: internal-results.md
+          fail: true
+
+      # External links — never fails the build; client sites go down for
+      # reasons unrelated to a commit.  LinkedIn blocks bots and Google Fonts
+      # rate-limits CI runners, so both are excluded from checking.
+      - name: Check external links (report only)
+        if: always()
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --include "https?://"
+            --timeout 30
+            --max-retries 2
+            --retry-wait-time 2
+            --exclude "https://www\.linkedin\.com"
+            --exclude "https://fonts\.googleapis\.com"
+            --no-progress
+            --format markdown
+            index.html offline.html
+          output: external-results.md
+          fail: false
+
+      - name: Write job summary
+        if: always()
+        run: |
+          {
+            echo "## Link Check"
+            echo ""
+            echo "### Internal & fragment links"
+            cat internal-results.md 2>/dev/null || echo "No issues found."
+            echo ""
+            echo "### External links (report only — never fails the build)"
+            cat external-results.md 2>/dev/null || echo "No issues found."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # ─── Job 3: Lighthouse ────────────────────────────────────────────────────
+  lighthouse:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Generate LHCI assertion configs inline so no extra files live in the repo.
+      # Assertions:
+      #   performance < 70  → build failure   (we control this)
+      #   accessibility < 90 → build failure  (we control this)
+      #   best-practices, seo → warning only  (third-party / env factors)
+      - name: Write LHCI config — mobile
+        run: |
+          cat > .lighthouserc-mobile.json << 'LHCI_EOF'
+          {
+            "ci": {
+              "assert": {
+                "assertions": {
+                  "categories:performance":    ["error", {"minScore": 0.70}],
+                  "categories:accessibility":  ["error", {"minScore": 0.90}],
+                  "categories:best-practices": ["warn",  {"minScore": 0.50}],
+                  "categories:seo":            ["warn",  {"minScore": 0.50}]
+                }
+              }
+            }
+          }
+          LHCI_EOF
+
+      - name: Write LHCI config — desktop
+        run: |
+          cat > .lighthouserc-desktop.json << 'LHCI_EOF'
+          {
+            "ci": {
+              "collect": {
+                "settings": { "preset": "desktop" }
+              },
+              "assert": {
+                "assertions": {
+                  "categories:performance":    ["error", {"minScore": 0.70}],
+                  "categories:accessibility":  ["error", {"minScore": 0.90}],
+                  "categories:best-practices": ["warn",  {"minScore": 0.50}],
+                  "categories:seo":            ["warn",  {"minScore": 0.50}]
+                }
+              }
+            }
+          }
+          LHCI_EOF
+
+      - name: Lighthouse — mobile
+        id: lhci_mobile
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: http://localhost:8080/
+          serverCommand: npx --yes serve@14 -l 8080 .
+          configPath: .lighthouserc-mobile.json
+          uploadArtifacts: true
+          artifactName: lighthouse-mobile
+
+      - name: Lighthouse — desktop
+        id: lhci_desktop
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: http://localhost:8080/
+          serverCommand: npx --yes serve@14 -l 8080 .
+          configPath: .lighthouserc-desktop.json
+          uploadArtifacts: true
+          artifactName: lighthouse-desktop
+
+      - name: Write job summary
+        if: always()
+        env:
+          MOBILE_MANIFEST: ${{ steps.lhci_mobile.outputs.manifest }}
+          DESKTOP_MANIFEST: ${{ steps.lhci_desktop.outputs.manifest }}
+        run: |
+          score() {
+            local manifest="$1" cat="$2"
+            if [ -z "$manifest" ]; then echo "n/a"; return; fi
+            echo "$manifest" | jq -r \
+              --arg cat "$cat" \
+              'if type == "array" and length > 0
+               then (.[0].summary[$cat] // null)
+               else null end |
+               if . == null then "n/a"
+               else (. * 100 + 0.5 | floor | tostring + "%") end'
+          }
+          {
+            echo "## Lighthouse Scores"
+            echo ""
+            echo "| Category | Mobile | Desktop |"
+            echo "|---|:---:|:---:|"
+            for cat in performance accessibility best-practices seo; do
+              m=$(score "$MOBILE_MANIFEST"  "$cat")
+              d=$(score "$DESKTOP_MANIFEST" "$cat")
+              label=$(echo "$cat" | sed 's/-/ /g; s/\b\(.\)/\u\1/g')
+              echo "| $label | $m | $d |"
+            done
+            echo ""
+            echo "_Hard limits: performance < 70 or accessibility < 90 → build failure._"
+            echo "_Soft limits: best-practices or SEO < 50 → warning only._"
+          } >> "$GITHUB_STEP_SUMMARY"
