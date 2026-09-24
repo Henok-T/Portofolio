@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Offline — Asmara Web Design</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html { height: 100%; }
+      body {
+        margin: 0;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f6f4;
+        color: #16352e;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.55;
+        padding: 2rem 1.5rem;
+        text-align: center;
+      }
+      main { max-width: 28rem; }
+      h1 {
+        font-size: clamp(1.6rem, 5vw, 2.25rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin: 0 0 1rem;
+      }
+      p {
+        margin: 0 0 1.5rem;
+        color: #3f5c54;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+      button, a.btn {
+        display: inline-block;
+        padding: 0.65rem 1.4rem;
+        border-radius: 6px;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: 2px solid #0a6b64;
+      }
+      button {
+        background: #0a6b64;
+        color: #fff;
+      }
+      button:hover { background: #085c56; border-color: #085c56; }
+      a.btn {
+        background: transparent;
+        color: #0a6b64;
+      }
+      a.btn:hover { background: #0a6b6415; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>You're offline.</h1>
+      <p>
+        Pages you've already visited still work — check the browser's back
+        button. Reconnect and try again to load new pages.
+      </p>
+      <div class="actions">
+        <button type="button" onclick="location.reload()">Try again</button>
+        <a class="btn" href="/">Go to homepage</a>
+      </div>
+    </main>
+  </body>
+</html>
