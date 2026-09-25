@@ -406,8 +406,8 @@
   .footer :focus-visible { outline-color: var(--bg); }
   .footer-grid { display: grid; gap: 2rem; padding: 3rem 0; }
   .footer img { width: 11rem; height: auto; max-width: 100%; }
-  .footer .word { margin: .25rem 0 0; line-height: 1; font-family: var(--brand); font-size: 1.4rem; }
-  .footer .web { margin: 0; line-height: 1.1; font-family: var(--brand); font-size: .75rem; letter-spacing: .18em; text-transform: lowercase; color: color-mix(in srgb, var(--bg) 80%, transparent); }
+  .footer .word { margin: .25rem 0 0 30px; line-height: 1; font-family: var(--brand); font-size: 1.4rem; }
+  .footer .web { margin: 0 0 0 30px; line-height: 1.1; font-family: var(--brand); font-size: .75rem; letter-spacing: .18em; text-transform: lowercase; color: color-mix(in srgb, var(--bg) 80%, transparent); }
   .footer a, .footer p { color: color-mix(in srgb, var(--bg) 80%, transparent); font-size: .875rem; text-decoration: none; }
   .footer h2 { color: #fff; font-family: var(--sans); font-size: .875rem; margin-bottom: .7rem; }
   .footer li { margin-top: 0; }
