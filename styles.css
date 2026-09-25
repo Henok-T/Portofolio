@@ -65,7 +65,7 @@
   .wrap { width: min(var(--wrap), calc(100% - 2.5rem)); margin-inline: auto; }
   .kicker { color: var(--lagoon); font-size: .875rem; font-weight: 600; }
   .muted { color: var(--muted); }
-  .skip { position: absolute; left: 1rem; top: 1rem; transform: translateY(-160%); background: #fff; padding: .5rem 1rem; border-radius: 999px; }
+  .skip { position: absolute; left: 1rem; top: 1rem; z-index: 30; transform: translateY(-160%); background: #fff; padding: .5rem 1rem; border-radius: 999px; }
   .skip:focus { transform: none; }
   .header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
   .header-bar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; height: 4rem; }
@@ -299,6 +299,7 @@
   .plans { display: grid; gap: 1rem; margin-top: 2rem; }
   .plan { display: flex; flex-direction: column; border: 1px solid var(--line); background: #fff; border-radius: 1.5rem; padding: 1.4rem; }
   .plan.recommended { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .plan.recommended :focus-visible { outline-color: var(--bg); }
   .plan h3 { margin-top: .9rem; font-family: var(--brand); font-size: 1.55rem; font-weight: 400; }
   .plan .blurb { margin-top: .5rem; font-size: .875rem; color: var(--muted); min-height: 2.8rem; }
   .plan.recommended .quiet, .plan.recommended .blurb { color: color-mix(in srgb, var(--bg) 78%, transparent); }
@@ -336,13 +337,15 @@
   .error { color: var(--coral); font-size: .875rem; }
   .hp { position: absolute; left: -9999px; }
   .footer { background: var(--ink); color: var(--bg); }
+  .footer :focus-visible { outline-color: var(--bg); }
   .footer-grid { display: grid; gap: 2rem; padding: 3rem 0; }
   .footer img { height: 3rem; width: auto; }
   .footer .word { margin-top: .7rem; font-family: var(--brand); font-size: 1.4rem; }
   .footer .web { font-family: var(--brand); font-size: .75rem; letter-spacing: .18em; text-transform: lowercase; color: color-mix(in srgb, var(--bg) 80%, transparent); }
   .footer a, .footer p { color: color-mix(in srgb, var(--bg) 80%, transparent); font-size: .875rem; text-decoration: none; }
   .footer h2 { color: #fff; font-family: var(--sans); font-size: .875rem; margin-bottom: .7rem; }
-  .footer li { margin-top: .45rem; }
+  .footer li { margin-top: 0; }
+  .footer-grid a { display: inline-flex; align-items: center; min-height: 2.75rem; }
   .legal { border-top: 1px solid color-mix(in srgb, var(--bg) 15%, transparent); display: flex; flex-direction: column; gap: .7rem; padding: 1.2rem 0 1.4rem; font-size: .875rem; color: color-mix(in srgb, var(--bg) 70%, transparent); }
   .legal a { color: #fff; }
   @media (min-width: 640px) {
@@ -485,6 +488,11 @@
   .bento-card:focus-visible {
     outline: 2px solid var(--lagoon);
     outline-offset: 3px;
+  }
+  /* Primary (dark) cards: inset cream ring keeps both edges against ink */
+  .bento-card--primary:focus-visible {
+    outline-color: var(--bg);
+    outline-offset: -3px;
   }
 
   /* Capabilities: hidden by default, revealed on hover/focus via grid row trick.
