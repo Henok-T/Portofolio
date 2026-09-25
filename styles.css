@@ -86,9 +86,9 @@
   .desktop-only { display: none; }
   .menu { display: none; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; border: 0; padding: 1rem 1.25rem 1.5rem; background: var(--bg); }
   .menu[open] { display: flex; flex-direction: column; }
-  .menu nav { flex: 1; display: flex; flex-direction: column; margin-top: 1.5rem; }
-  .menu a { border-bottom: 1px solid var(--line); padding: 1rem 0; font-family: var(--display); font-size: 2rem; text-decoration: none; }
-  .menu .btn { margin-top: auto; }
+  .menu nav { display: flex; flex-direction: column; margin-top: 1.5rem; }
+  .menu nav a { border-bottom: 1px solid var(--line); padding: 1rem 0; font-family: var(--brand); font-size: 2rem; text-decoration: none; }
+  .menu .btn { margin-top: clamp(1.5rem, 8vh, 3rem); }
   .hero { padding: 3rem 0 2rem; }
   .hero-grid, .split, .feature, .about-grid, .contact-grid { display: grid; gap: 2rem; }
   .pill { display: inline-flex; border-radius: 999px; background: color-mix(in srgb, var(--lagoon) 10%, transparent); color: var(--lagoon); font-size: .875rem; font-weight: 600; padding: .25rem .75rem; }
