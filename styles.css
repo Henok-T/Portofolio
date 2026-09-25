@@ -468,7 +468,31 @@
     }
   }
 
-  /* ── 4. Services bento grid ────────────────────────────────────────────────
+  /* ── 4. Work section header ────────────────────────────────────────────────
+     Full-width row above the work grid. Mobile: stacked. Desktop (≥900px):
+     heading left, supporting text + link right, both aligned to the bottom
+     of the heading block so the row feels balanced.                         */
+  .work-header h2 { max-width: none; text-wrap: balance; }
+
+  @media (min-width: 900px) {
+    .work-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+    .work-header__meta {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+      text-align: right;
+      padding-bottom: 0.7rem;
+    }
+  }
+
+  /* ── 5. Services bento grid ────────────────────────────────────────────────
      Section header is full-width, left-aligned, capped at ~50ch.
      The grid is 1-col mobile → 2-col tablet (primaries span both) →
      6-col desktop (primaries span 3, secondaries span 2).
