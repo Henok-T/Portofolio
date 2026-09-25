@@ -494,13 +494,33 @@
   }
 
   /* ── 5. Services bento grid ────────────────────────────────────────────────
-     Section header is full-width, left-aligned, capped at ~50ch.
+     Section header is full-width. Mobile: stacked. Desktop (≥900px): heading
+     left, supporting text + link right, aligned to the bottom of the heading.
      The grid is 1-col mobile → 2-col tablet (primaries span both) →
      6-col desktop (primaries span 3, secondaries span 2).
      Container queries on each <li> adjust internal padding and title size
      because the two card widths differ.                                     */
-  .services-header { max-width: 50ch; }
-  .services-header h2 { max-width: none; }
+  .services-header h2 { max-width: none; text-wrap: balance; }
+  .services-header__meta { margin-top: 1rem; }
+
+  @media (min-width: 900px) {
+    .services-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+    .services-header__meta {
+      margin-top: 0;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+      text-align: right;
+      padding-bottom: 0.7rem;
+    }
+  }
 
   .bento {
     display: grid;
