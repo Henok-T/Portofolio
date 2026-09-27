@@ -1,4 +1,4 @@
-const VERSION = "v27";
+const VERSION = "v28";
 
 const STATIC_CACHE = `static-${VERSION}`;
 const PAGES_CACHE  = `pages-${VERSION}`;
