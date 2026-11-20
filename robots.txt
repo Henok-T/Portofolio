@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /old/
 
-Sitemap: https://asmaraweb.netlify.app/sitemap.xml
+Sitemap: https://asmarawebdesign.com/sitemap.xml
