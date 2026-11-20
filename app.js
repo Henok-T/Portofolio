@@ -4,27 +4,27 @@ const WEB3FORMS_KEY = "2a49c1ed-8b36-4a43-926e-0cbe49f2302f";
 const plans = {
   "Dante Plan": {
     cadence: "Monthly subscription",
-    price: "$49 / month",
+    price: "$25 / month",
     lead: "A single, well-structured page for businesses that need to be findable and reachable now: who you are, what you offer, where you work, and a contact form that delivers.",
     care: "We write the copy with you, build it, and host it. Small changes such as new hours, a new photo or updated services are covered each month.",
     terms:
-      "$49 per month, 6-month minimum, then month to month. Domain billed yearly at cost. Cancel after the minimum and the site comes down at the end of that billing month. Ask about a buyout if you want to keep it.",
+      "$25 per month, 6-month minimum, then month to month. Domain billed yearly at cost. Cancel after the minimum and the site comes down at the end of that billing month. Ask about a buyout if you want to keep it.",
   },
   "Impero Plan": {
     cadence: "Monthly subscription",
-    price: "$149 / month",
+    price: "$59 / month",
     lead: "A full website of up to five pages, typically Home, Services, About, Gallery or Work, and Contact, planned around how your customers actually decide to call you.",
     care: "We handle the writing, design, build, hosting and ongoing care. Each month we check for broken links, errors and accessibility problems, and fix what we find.",
     terms:
-      "$149 per month, 12-month minimum, then month to month. Domain billed yearly at cost. Up to 2 hours of content updates each month. Cancel after the minimum and the site comes down at the end of that billing month. Ask about a buyout if you want to keep it.",
+      "$59 per month, 12-month minimum, then month to month. Domain billed yearly at cost. Up to 1 hour of content updates each month. Cancel after the minimum and the site comes down at the end of that billing month. Ask about a buyout if you want to keep it.",
   },
   "Roma Plan": {
     cadence: "One-time build",
-    price: "$1,499 + hosting",
+    price: "$499 + hosting",
     lead: "The same five-page website, paid for once. It belongs to you: the code, the content and the domain.",
     care: "Hosting is a separate $20 per month so the site stays fast, secure and online. After launch, you get 30 days of free fixes; later changes are quoted up front.",
     terms:
-      "$1,499 one-time. Half is due to start, half when the site is ready to launch. Hosting $20 per month from launch. Domain billed yearly at cost.",
+      "$499 one-time. Half is due to start, half when the site is ready to launch. Hosting $20 per month from launch. Domain billed yearly at cost.",
   },
 };
 const labels = {
